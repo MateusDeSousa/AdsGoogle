@@ -1,0 +1,6 @@
+framework module AdsMobills {
+  umbrella header "AdsMobills-umbrella.h"
+
+  export *
+  module * { export * }
+}
