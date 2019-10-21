@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AdsMobills_Example' do
+  pod 'AdsMobills', :path => '../'
+
+  target 'AdsMobills_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
