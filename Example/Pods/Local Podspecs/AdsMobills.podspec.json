@@ -12,11 +12,17 @@
     "mateusdesousa": "mateusdevsousa@gmail.com"
   },
   "source": {
-    "git": "https://github.com/mateusdesousa/AdsMobills.git",
+    "git": "https://mateusdevsousa@bitbucket.org/mob_apps/ad-manager-ios.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "AdsMobills/Classes/**/*"
+  "source_files": "AdsMobills/Classes/**/*",
+  "static_framework": true,
+  "dependencies": {
+    "Google-Mobile-Ads-SDK": [
+      "~> 7.8"
+    ]
+  }
 }

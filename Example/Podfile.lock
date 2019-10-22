@@ -1,10 +1,40 @@
 PODS:
-  - AdsMobills (0.1.0)
+  - AdsMobills (0.1.0):
+    - Google-Mobile-Ads-SDK (~> 7.8)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - Google-Mobile-Ads-SDK (7.51.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.1.3):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3.901)
+  - GoogleUtilities/AppDelegateSwizzler (6.3.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.1)
+  - GoogleUtilities/Logger (6.3.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.1)"
+  - GoogleUtilities/Reachability (6.3.1):
+    - GoogleUtilities/Logger
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
   - AdsMobills (from `../`)
@@ -13,14 +43,22 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FBSnapshotTestCase
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - nanopb
 
 EXTERNAL SOURCES:
   AdsMobills:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AdsMobills: 729adc85389b8ba7bb48d212c4cd2a5c063a1b23
+  AdsMobills: 72f0a3ccc4c7558ac54dc8f9c3ca0027018d19de
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Google-Mobile-Ads-SDK: 5c625884f0788d22b48e3bb641e1d65c673dc7a5
+  GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
+  GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
 PODFILE CHECKSUM: 571c8265676da97e02d18095860de89f358f6684
 
