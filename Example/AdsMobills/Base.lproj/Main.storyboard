@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SKz-XD-fBB">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -26,22 +26,133 @@
                                     <constraint firstAttribute="height" constant="62" id="FEu-wM-azI"/>
                                     <constraint firstAttribute="width" constant="198" id="ijS-Ah-u3N"/>
                                 </constraints>
-                                <state key="normal" title="teste de intertitial">
+                                <state key="normal" title="teste de intertitial push">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onclick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dIb-Nb-IkV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-QL-pBp">
+                                <rect key="frame" x="88.5" y="394.5" width="198" height="62"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="cGx-dr-0yj"/>
+                                    <constraint firstAttribute="height" constant="62" id="s8P-Dp-x5B"/>
+                                </constraints>
+                                <state key="normal" title="teste de intertitial present">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onclickPresent:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zUo-da-OPU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Ge-w5-x5K" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Fqz-jt-Dyt"/>
+                            <constraint firstItem="fJM-QL-pBp" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="QEe-zZ-8LX"/>
+                            <constraint firstItem="fJM-QL-pBp" firstAttribute="top" secondItem="2Ge-w5-x5K" secondAttribute="bottom" constant="30" id="geh-Sx-KNk"/>
                             <constraint firstItem="2Ge-w5-x5K" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="ut0-wH-6i7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uT4-sq-t8s"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller Push-->
+        <scene sceneID="M6I-JX-BUI">
+            <objects>
+                <viewController storyboardIdentifier="ViewControllerPush" id="ANP-G0-TF1" customClass="ViewControllerPush" customModule="AdsMobills_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U3G-b0-uZJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="SvU-fA-4Vk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gC4-UE-aWa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgi-dc-CaV">
+                                <rect key="frame" x="112.5" y="308.5" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="BVS-cb-PRx"/>
+                                    <constraint firstAttribute="height" constant="50" id="XTa-BV-hsG"/>
+                                </constraints>
+                                <state key="normal" title="screen Push">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShoIntertitial:" destination="ANP-G0-TF1" eventType="touchUpInside" id="Pjf-sd-VXH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vgi-dc-CaV" firstAttribute="centerY" secondItem="gC4-UE-aWa" secondAttribute="centerY" id="BMd-6w-XEZ"/>
+                            <constraint firstItem="vgi-dc-CaV" firstAttribute="centerX" secondItem="gC4-UE-aWa" secondAttribute="centerX" id="Owh-oW-DPn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XXp-J3-KTD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951.2" y="567.16641679160421"/>
+        </scene>
+        <!--Screen present-->
+        <scene sceneID="EZn-tu-8OD">
+            <objects>
+                <viewController storyboardIdentifier="ViewControllerPresent" title="Screen present" id="4P8-ZB-PXc" customClass="ViewControllerPresent" customModule="AdsMobills_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cjM-bp-WMo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ehe-FY-1BZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qex-aM-jBq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-e6-2Yc">
+                                <rect key="frame" x="112.5" y="308.5" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9iS-2E-u24"/>
+                                    <constraint firstAttribute="height" constant="50" id="GHy-J3-6uj"/>
+                                </constraints>
+                                <state key="normal" title="screen Present">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDismiss:" destination="4P8-ZB-PXc" eventType="touchUpInside" id="Gdx-rw-P51"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZAh-e6-2Yc" firstAttribute="centerY" secondItem="Qex-aM-jBq" secondAttribute="centerY" id="L2v-Nb-n8y"/>
+                            <constraint firstItem="ZAh-e6-2Yc" firstAttribute="centerX" secondItem="Qex-aM-jBq" secondAttribute="centerX" id="o38-uO-Qaw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1k-bJ-5cl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="-117.39130434782609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="daJ-P0-Aei">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SKz-XD-fBB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h08-4A-uUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Cdf-8R-Sjj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fb-fs-nHW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>

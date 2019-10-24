@@ -8,36 +8,36 @@
 
 import UIKit
 import AdsMobills
-import GoogleMobileAds
 
-class ViewController: UIViewController, GADInterstitialDelegate {
+class ViewController: UIViewController {
 
-    var interstitial: GADInterstitial!
-//    var googleAds: AdsMobillsInterstitial!
+    var googleAds = AdsMobillsInterstitial.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        interstitial.delegate = self
-        let request = GADRequest()
-        interstitial.load(request)
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func onclick(_ sender: Any) {
-        
-        if interstitial.isReady {
-          interstitial.present(fromRootViewController: self)
+        googleAds.showInterstitialByLoadScreen { loaded in
+            if loaded{
+                print("teste")
+            }else{
+                print("teste")
+            }
         }
     }
+
+    @IBAction func onclick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerPush")
+        googleAds.showInterstitialBeforePush(fromController: self, toController: controller)
+        
+    }
     
-    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        let request = GADRequest()
-        interstitial.load(request)
+    @IBAction func onclickPresent(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ViewControllerPresent")
+
+        googleAds.showInterstitialBeforePresent(fromController: self, toController: controller)
     }
     
 }
