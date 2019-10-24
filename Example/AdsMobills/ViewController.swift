@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        AdsMobillsNative.shareInstance.loadAdsNative(fromController: self)
         googleAds.showInterstitialByLoadScreen { loaded in
             if loaded{
                 print("teste")
