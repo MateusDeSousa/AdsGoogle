@@ -64,7 +64,7 @@
 		4D80B1922373512A00B1C702 /* GADTSmallTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B18E2373512A00B1C702 /* GADTSmallTemplateView.swift */; };
 		4D80B1932373512A00B1C702 /* GADTSmallTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D80B18F2373512A00B1C702 /* GADTSmallTemplateView.xib */; };
 		4D80B1942373512A00B1C702 /* GADTMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B1902373512A00B1C702 /* GADTMediumTemplateView.swift */; };
-		4D80B196237353E300B1C702 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B195237353E300B1C702 /* teste.swift */; };
+		4D80B1992373553700B1C702 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B1982373553700B1C702 /* teste.swift */; };
 		52C4436DC73072DBBE375B002701266D /* GULNetworkURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = A04C82E2D6EEF6F9C9CFEC6D4E048273 /* GULNetworkURLSession.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		541B823EC45141E979523DD92F7B1ED1 /* GULLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ED93371CEE7A788E1D991D68B330FAF9 /* GULLogger.m */; };
 		56DB7BD3DC21A12078421CCE5BDA7F79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA00F32162B22FD4D239C9FD5E90A8DA /* SystemConfiguration.framework */; };
@@ -240,7 +240,7 @@
 		4D80B18E2373512A00B1C702 /* GADTSmallTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GADTSmallTemplateView.swift; path = ../../../AdsMobills/Classes/TypesAds/Native/Templates/GADTSmallTemplateView.swift; sourceTree = "<group>"; };
 		4D80B18F2373512A00B1C702 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GADTSmallTemplateView.xib; path = ../../../AdsMobills/Classes/TypesAds/Native/Templates/GADTSmallTemplateView.xib; sourceTree = "<group>"; };
 		4D80B1902373512A00B1C702 /* GADTMediumTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GADTMediumTemplateView.swift; path = ../../../AdsMobills/Classes/TypesAds/Native/Templates/GADTMediumTemplateView.swift; sourceTree = "<group>"; };
-		4D80B195237353E300B1C702 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = teste.swift; path = AdsMobills/Classes/teste.swift; sourceTree = "<group>"; };
+		4D80B1982373553700B1C702 /* teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = teste.swift; path = ../AdsMobills/Classes/teste/teste.swift; sourceTree = "<group>"; };
 		501C082DA06EB10DFDCCA9B4B8778052 /* Pods-AdsMobills_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdsMobills_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		502FFF28D8B8A39A14756B8A58C6ACCB /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		51C0EF179D04D1B47907C4E8E12E089B /* Pods-AdsMobills_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdsMobills_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -544,6 +544,14 @@
 			path = Templates;
 			sourceTree = "<group>";
 		};
+		4D80B197237354BD00B1C702 /* teste */ = {
+			isa = PBXGroup;
+			children = (
+				4D80B1982373553700B1C702 /* teste.swift */,
+			);
+			path = teste;
+			sourceTree = "<group>";
+		};
 		58FB742D137FC2D0527786803819FEBD /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,7 +617,7 @@
 		9C8E8A4914606B388FFE6F6D7CF47116 /* AdsMobills */ = {
 			isa = PBXGroup;
 			children = (
-				4D80B195237353E300B1C702 /* teste.swift */,
+				4D80B197237354BD00B1C702 /* teste */,
 				4D80B185237350C900B1C702 /* TypesAds */,
 				4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */,
 				760C47F61B19801BA2F669B5E99C4EA9 /* Pod */,
@@ -1162,7 +1170,7 @@
 				4D80B1942373512A00B1C702 /* GADTMediumTemplateView.swift in Sources */,
 				4D80B18B2373510E00B1C702 /* AdsMobillsNative.swift in Sources */,
 				4D80B189237350FE00B1C702 /* AdsMobillsInterstitial.swift in Sources */,
-				4D80B196237353E300B1C702 /* teste.swift in Sources */,
+				4D80B1992373553700B1C702 /* teste.swift in Sources */,
 				4D80B1822373171B00B1C702 /* AdsMobillsSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
