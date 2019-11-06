@@ -10,27 +10,27 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     var toController: UIViewController!
     var methodNavigation: MethodNavigation?
     
-    var adIdExpensive = ""
-    var adIdDefault = ""
+    static var adIdExpensive = ""
+    static var adIdDefault = ""
     
     static var adReceived: ((Bool) -> Void)?
     
     public func startAdsMobills(adIdExpensive: String, adIdDefault: String){
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        self.adIdDefault = adIdDefault
-        self.adIdExpensive = adIdExpensive
+        AdsMobillsInterstitial.adIdDefault = adIdDefault
+        AdsMobillsInterstitial.adIdExpensive = adIdExpensive
         self.interstitial = loadExpensiveInterstitial()
     }
     
     public func loadExpensiveInterstitial() -> GADInterstitial{
-        let interstitial = GADInterstitial(adUnitID: adIdExpensive)
+        let interstitial = GADInterstitial(adUnitID: AdsMobillsInterstitial.adIdExpensive)
         interstitial.delegate = AdsMobillsInterstitial.instance
         interstitial.load(GADRequest())
         return interstitial
     }
     
     public func loadDefaultInterstitial() -> GADInterstitial{
-        let interstitial = GADInterstitial(adUnitID: adIdDefault)
+        let interstitial = GADInterstitial(adUnitID: AdsMobillsInterstitial.adIdDefault)
         interstitial.delegate = AdsMobillsInterstitial.instance
         interstitial.load(GADRequest())
         return interstitial
@@ -109,7 +109,7 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         let intertitialId = self.interstitial
-        if intertitialId?.adUnitID == adIdExpensive{
+        if intertitialId?.adUnitID == AdsMobillsInterstitial.adIdExpensive{
             self.interstitial = loadDefaultInterstitial()
             return
         }

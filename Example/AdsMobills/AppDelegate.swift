@@ -8,7 +8,7 @@
 
 import UIKit
 import AdsMobills
-import GoogleMobileAds
+//import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        AdsMobillsInterstitial.instance.startAdsMobills(adIdExpensive: "ca-app-pub-3940256099942544/4411468912", adIdDefault: "ca-app-pub-3940256099942544/4411468910")
-//        AdsMobillsNative.shareInstance.startAdsNative(adIdExpansive: "ca-app-pub-3940256099942544/3986624511", adIdDefault: "ca-app-pub-3940256099942544/3986624511")
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        AdsMobillsNative.shareInstance.startAdsNative(adIdExpansive: "ca-app-pub-3940256099942544/3986624511", adIdDefault: "ca-app-pub-3940256099942544/3986624511")
-        
+
+        AdsMobillsSetup.share.startAds(appId: "",
+                                       adUnitIntertitialDefault: "ca-app-pub-3940256099942544/4411468910",
+                                       adUnitIntertitialExpensive: "ca-app-pub-3940256099942544/4411468912",
+                                       adUnitNativeDefault: "ca-app-pub-3940256099942544/3986624511",
+                                       adUnitNativeExpensive: "ca-app-pub-3940256099942544/3986624511")
         return true
     }
 

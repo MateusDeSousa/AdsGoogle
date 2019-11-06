@@ -60,6 +60,7 @@
 		4C7D322E4CE005AE5F6F02E224E2AACD /* GULNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A5AF753AC7D586A4A2755A45669EC9F4 /* GULNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D293633235F5CFF00686AB8 /* AdsMobillsInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */; };
 		4D29363B2361E13D00686AB8 /* AdsMobillsNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */; };
+		4D80B1822373171B00B1C702 /* AdsMobillsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */; };
 		4DDC1BD2236C9CC9001A8C36 /* GADTMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC1BD1236C9CC9001A8C36 /* GADTMediumTemplateView.swift */; };
 		4DDC1BD4236C9D03001A8C36 /* GADTSmallTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC1BD3236C9D03001A8C36 /* GADTSmallTemplateView.swift */; };
 		52C4436DC73072DBBE375B002701266D /* GULNetworkURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = A04C82E2D6EEF6F9C9CFEC6D4E048273 /* GULNetworkURLSession.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -233,6 +234,7 @@
 		46541404497FCAD4DB9E4014A5878C86 /* GULAppDelegateSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppDelegateSwizzler.m; path = GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m; sourceTree = "<group>"; };
 		4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsMobillsInterstitial.swift; sourceTree = "<group>"; };
 		4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsMobillsNative.swift; sourceTree = "<group>"; };
+		4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsMobillsSetup.swift; path = AdsMobills/Classes/AdsMobillsSetup.swift; sourceTree = "<group>"; };
 		4DDC1BCA236C9B2F001A8C36 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
 		4DDC1BCD236C9B2F001A8C36 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
 		4DDC1BD1236C9CC9001A8C36 /* GADTMediumTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADTMediumTemplateView.swift; sourceTree = "<group>"; };
@@ -606,9 +608,10 @@
 		9C8E8A4914606B388FFE6F6D7CF47116 /* AdsMobills */ = {
 			isa = PBXGroup;
 			children = (
-				4D293631235F5CC600686AB8 /* TypesAds */,
+				4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */,
 				760C47F61B19801BA2F669B5E99C4EA9 /* Pod */,
 				E98E79C887D6FD3965C0AD43D2FD4D7B /* Support Files */,
+				4D293631235F5CC600686AB8 /* TypesAds */,
 			);
 			name = AdsMobills;
 			path = ../..;
@@ -1156,6 +1159,7 @@
 				4D29363B2361E13D00686AB8 /* AdsMobillsNative.swift in Sources */,
 				4DDC1BD4236C9D03001A8C36 /* GADTSmallTemplateView.swift in Sources */,
 				4DDC1BD2236C9CC9001A8C36 /* GADTMediumTemplateView.swift in Sources */,
+				4D80B1822373171B00B1C702 /* AdsMobillsSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

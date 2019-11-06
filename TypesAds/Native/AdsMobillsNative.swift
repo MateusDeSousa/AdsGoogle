@@ -12,17 +12,11 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     public static var shareInstance = AdsMobillsNative()
     
-    var adIdExpansive = ""
-    var adIdDefault = ""
+    static var adIdExpansive = ""
+    static var adIdDefault = ""
     var viewTemplate: UIView!
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!
-
-    
-    public func startAdsNative(adIdExpansive: String, adIdDefault: String){
-        self.adIdDefault = adIdDefault
-        self.adIdExpansive = adIdExpansive
-    }
     
     public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView){
         AdsMobillsNative.fromController = fromController
@@ -34,7 +28,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        let adLoad = GADAdLoader(adUnitID: adIdExpansive, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdExpansive, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
         adLoad.delegate = AdsMobillsNative.shareInstance
         adLoad.load(GADRequest())
         return adLoad
@@ -44,7 +38,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        let adLoad = GADAdLoader(adUnitID: adIdDefault, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdDefault, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
         adLoad.delegate = AdsMobillsNative.shareInstance
         adLoad.load(GADRequest())
         return adLoad
@@ -52,7 +46,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     public func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
         let adLoadId = AdsMobillsNative.adNative
-        if adLoadId?.adUnitID == adIdExpansive{
+        if adLoadId?.adUnitID == AdsMobillsNative.adIdExpansive{
             AdsMobillsNative.adNative = loadDefaultNative()
             return
         }
