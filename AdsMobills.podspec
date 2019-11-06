@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
 #  s.source_files = 'AdsMobills/Classes/*'
-  s.source_files = "Classes", "AdsMobills/Classes/**/*.{swift}"
+  s.source_files = "Classes", "AdsMobills/Classes/**"
   
   # s.resource_bundles = {
   #   'AdsMobills' => ['AdsMobills/Assets/*.png']

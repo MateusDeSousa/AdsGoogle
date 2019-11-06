@@ -8,10 +8,11 @@
 import Foundation
 import GoogleMobileAds
 
-public class AdsMobillsNative: NSObject, GADAdLoaderDelegate, GADUnifiedNativeAdDelegate {
+public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     public static var shareInstance = AdsMobillsNative()
     
+//    var teste =
     var adIdExpansive = ""
     var adIdDefault = ""
     static var fromController = UIViewController()
@@ -59,7 +60,11 @@ public class AdsMobillsNative: NSObject, GADAdLoaderDelegate, GADUnifiedNativeAd
         print("Teste")
     }
     
-    public func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+//    public func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+//        print("Teste")
+//    }
+    
+    public func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
         print("Teste")
     }
     

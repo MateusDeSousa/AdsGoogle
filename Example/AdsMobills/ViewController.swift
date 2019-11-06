@@ -13,14 +13,15 @@ import GoogleMobileAds
 class ViewController: UIViewController, GADUnifiedNativeAdLoaderDelegate{
     
     
-    var adViewTemplete = GADTSmallTemplateView()
+//    var adViewTemplete = GADTSmallTemplateView()
+    let viewNative = GADTMediumTemplateView()
     var googleAds = AdsMobillsInterstitial.instance
     
     var adLoader: GADAdLoader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        styleTemplete()
+//        styleTemplete()
         initializeLoadNativeAds()
         createViewNative()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,39 +36,24 @@ class ViewController: UIViewController, GADUnifiedNativeAdLoaderDelegate{
     }
 
     private func createViewNative(){
-//        let viewNative = UIView()
-//        view.addSubview(viewNative)
-//        viewNative.backgroundColor = .red
-//        viewNative.translatesAutoresizingMaskIntoConstraints = false
-//
-//        viewNative.heightAnchor.constraint(equalToConstant: 500).isActive = true
-//        viewNative.widthAnchor.constraint(equalToConstant: 414).isActive = true
-//        viewNative.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-//        viewNative.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        viewNative.initializeTempleteMedium()
+        view.addSubview(viewNative)
+        viewNative.backgroundColor = .red
+        viewNative.translatesAutoresizingMaskIntoConstraints = false
+
+        viewNative.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        viewNative.widthAnchor.constraint(equalToConstant: 414).isActive = true
+        viewNative.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        viewNative.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        adLoader = GADAdLoader(adUnitID: "/6499/example/native", rootViewController: self, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511", rootViewController: self, adTypes: [.unifiedNative], options: [multipleAdsOptions])
         adLoader.delegate = self
         adLoader.load(GADRequest())
         
-        view.addSubview(adViewTemplete)
-        
-        
-        
-//        adViewTemplete.nativeAd =
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        adViewTemplete.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            adViewTemplete.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
-            adViewTemplete.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            adViewTemplete.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
+//        view.addSubview(adViewTemplete)
         
     }
     
@@ -75,35 +61,35 @@ class ViewController: UIViewController, GADUnifiedNativeAdLoaderDelegate{
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        adLoader = GADAdLoader(adUnitID: "/6499/example/native", rootViewController: self, adTypes: [.unifiedNative], options: [multipleAdsOptions])
-        adLoader.delegate = self
+        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511", rootViewController: self, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+//        adLoader.delegate = self
         adLoader.load(GADRequest())
         
 //        adViewTemplete.nativeAd = adLoader
     }
     
-    private func styleTemplete(){
-        let myBlueColor = "#5C84F0"
-        let styles: [GADTNativeTemplateStyleKey : NSObject] = [.callToActionFont : UIFont.systemFont(ofSize: 15),
-                                                          .callToActionFontColor : UIColor.white,
-                                                          .callToActionBackgroundColor : GADTTemplateView.color(fromHexString: myBlueColor),
-                                                          .secondaryFont : UIFont.systemFont(ofSize: 15),
-                                                          .secondaryFontColor : UIColor.gray,
-                                                          .secondaryBackgroundColor : UIColor.white,
-                                                          .primaryFont : UIFont.systemFont(ofSize: 15),
-                                                          .primaryFontColor: UIColor.white,
-                                                          .primaryBackgroundColor: UIColor.white,
-                                                          .tertiaryFont : UIFont.systemFont(ofSize: 15),
-                                                          .tertiaryFontColor : UIColor.gray,
-                                                          .tertiaryBackgroundColor : UIColor.white,
-                                                          .mainBackgroundColor : UIColor.white,
-                                                          .cornerRadius : NSNumber(7)
-            
-                                                        ]
-        
-        adViewTemplete.styles = styles
-        
-    }
+//    private func styleTemplete(){
+//        let myBlueColor = "#5C84F0"
+//        let styles: [GADTNativeTemplateStyleKey : NSObject] = [.callToActionFont : UIFont.systemFont(ofSize: 15),
+//                                                          .callToActionFontColor : UIColor.white,
+//                                                          .callToActionBackgroundColor : GADTTemplateView.color(fromHexString: myBlueColor),
+//                                                          .secondaryFont : UIFont.systemFont(ofSize: 15),
+//                                                          .secondaryFontColor : UIColor.gray,
+//                                                          .secondaryBackgroundColor : UIColor.white,
+//                                                          .primaryFont : UIFont.systemFont(ofSize: 15),
+//                                                          .primaryFontColor: UIColor.white,
+//                                                          .primaryBackgroundColor: UIColor.white,
+//                                                          .tertiaryFont : UIFont.systemFont(ofSize: 15),
+//                                                          .tertiaryFontColor : UIColor.gray,
+//                                                          .tertiaryBackgroundColor : UIColor.white,
+//                                                          .mainBackgroundColor : UIColor.white,
+//                                                          .cornerRadius : NSNumber(7)
+//
+//                                                        ]
+//
+//        adViewTemplete.styles = styles
+//
+//    }
     
     @IBAction func onclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -128,7 +114,9 @@ class ViewController: UIViewController, GADUnifiedNativeAdLoaderDelegate{
     }
     
     func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
-        adViewTemplete.nativeAd = nativeAd
+//        adViewTemplete.nativeAd = nativeAd
+//        nativeAd
+        viewNative.setNativeAd = nativeAd
     }
     
 }

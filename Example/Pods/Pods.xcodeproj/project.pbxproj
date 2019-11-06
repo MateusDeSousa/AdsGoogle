@@ -60,6 +60,8 @@
 		4C7D322E4CE005AE5F6F02E224E2AACD /* GULNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A5AF753AC7D586A4A2755A45669EC9F4 /* GULNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D293633235F5CFF00686AB8 /* AdsMobillsInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */; };
 		4D29363B2361E13D00686AB8 /* AdsMobillsNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */; };
+		4DDC1BD2236C9CC9001A8C36 /* GADTMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC1BD1236C9CC9001A8C36 /* GADTMediumTemplateView.swift */; };
+		4DDC1BD4236C9D03001A8C36 /* GADTSmallTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC1BD3236C9D03001A8C36 /* GADTSmallTemplateView.swift */; };
 		52C4436DC73072DBBE375B002701266D /* GULNetworkURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = A04C82E2D6EEF6F9C9CFEC6D4E048273 /* GULNetworkURLSession.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		541B823EC45141E979523DD92F7B1ED1 /* GULLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ED93371CEE7A788E1D991D68B330FAF9 /* GULLogger.m */; };
 		56DB7BD3DC21A12078421CCE5BDA7F79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA00F32162B22FD4D239C9FD5E90A8DA /* SystemConfiguration.framework */; };
@@ -229,8 +231,12 @@
 		43FC4FD20D6B1ED44D878463EB52E2B8 /* AdsMobills-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AdsMobills-prefix.pch"; sourceTree = "<group>"; };
 		442474DB956A8FFEECD0246FC592763C /* GULNetworkMessageCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkMessageCode.h; path = GoogleUtilities/Network/Private/GULNetworkMessageCode.h; sourceTree = "<group>"; };
 		46541404497FCAD4DB9E4014A5878C86 /* GULAppDelegateSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppDelegateSwizzler.m; path = GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m; sourceTree = "<group>"; };
-		4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdsMobillsInterstitial.swift; path = ../AdsMobills/Classes/TypesAds/AdsMobillsInterstitial.swift; sourceTree = "<group>"; };
+		4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsMobillsInterstitial.swift; sourceTree = "<group>"; };
 		4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsMobillsNative.swift; sourceTree = "<group>"; };
+		4DDC1BCA236C9B2F001A8C36 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
+		4DDC1BCD236C9B2F001A8C36 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
+		4DDC1BD1236C9CC9001A8C36 /* GADTMediumTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADTMediumTemplateView.swift; sourceTree = "<group>"; };
+		4DDC1BD3236C9D03001A8C36 /* GADTSmallTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADTSmallTemplateView.swift; sourceTree = "<group>"; };
 		501C082DA06EB10DFDCCA9B4B8778052 /* Pods-AdsMobills_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdsMobills_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		502FFF28D8B8A39A14756B8A58C6ACCB /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		51C0EF179D04D1B47907C4E8E12E089B /* Pods-AdsMobills_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdsMobills_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -501,10 +507,38 @@
 		4D293631235F5CC600686AB8 /* TypesAds */ = {
 			isa = PBXGroup;
 			children = (
-				4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */,
-				4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */,
+				4DDC1BC7236C9B03001A8C36 /* Native */,
+				4DDC1BC6236C9AE0001A8C36 /* Interstitial */,
 			);
 			path = TypesAds;
+			sourceTree = "<group>";
+		};
+		4DDC1BC6236C9AE0001A8C36 /* Interstitial */ = {
+			isa = PBXGroup;
+			children = (
+				4D293632235F5CFF00686AB8 /* AdsMobillsInterstitial.swift */,
+			);
+			path = Interstitial;
+			sourceTree = "<group>";
+		};
+		4DDC1BC7236C9B03001A8C36 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				4DDC1BD0236C9B2F001A8C36 /* Templates */,
+				4D29363A2361E13D00686AB8 /* AdsMobillsNative.swift */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		4DDC1BD0236C9B2F001A8C36 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				4DDC1BD1236C9CC9001A8C36 /* GADTMediumTemplateView.swift */,
+				4DDC1BCA236C9B2F001A8C36 /* GADTMediumTemplateView.xib */,
+				4DDC1BD3236C9D03001A8C36 /* GADTSmallTemplateView.swift */,
+				4DDC1BCD236C9B2F001A8C36 /* GADTSmallTemplateView.xib */,
+			);
+			path = Templates;
 			sourceTree = "<group>";
 		};
 		58FB742D137FC2D0527786803819FEBD /* Reachability */ = {
@@ -1120,6 +1154,8 @@
 				C002D744F296DC8357B0DEBB2E035DF9 /* AdsMobills-dummy.m in Sources */,
 				4D293633235F5CFF00686AB8 /* AdsMobillsInterstitial.swift in Sources */,
 				4D29363B2361E13D00686AB8 /* AdsMobillsNative.swift in Sources */,
+				4DDC1BD4236C9D03001A8C36 /* GADTSmallTemplateView.swift in Sources */,
+				4DDC1BD2236C9CC9001A8C36 /* GADTMediumTemplateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
