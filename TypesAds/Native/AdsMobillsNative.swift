@@ -12,19 +12,21 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     public static var shareInstance = AdsMobillsNative()
     
-//    var teste =
     var adIdExpansive = ""
     var adIdDefault = ""
+    var viewTemplate: UIView!
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!
+
     
     public func startAdsNative(adIdExpansive: String, adIdDefault: String){
         self.adIdDefault = adIdDefault
         self.adIdExpansive = adIdExpansive
     }
     
-    public func loadAdsNative(fromController: UIViewController){
+    public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView){
         AdsMobillsNative.fromController = fromController
+        self.viewTemplate = viewTemplate
         AdsMobillsNative.adNative = loadExpansiveNative()
     }
     
@@ -56,16 +58,14 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         }
     }
     
-    public func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-        print("Teste")
-    }
-    
-//    public func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
-//        print("Teste")
-//    }
-    
     public func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADUnifiedNativeAd) {
-        print("Teste")
+        if #available(iOS 9.0, *) {
+            if let view = viewTemplate as? GADTMediumTemplateView{
+                view.setNativeAd = nativeAd
+            }else if let view = viewTemplate as? GADTSmallTemplateView{
+                view.setNativeAd = nativeAd
+            }
+        }
     }
     
 }
