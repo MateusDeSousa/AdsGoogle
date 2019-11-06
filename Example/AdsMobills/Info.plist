@@ -28,6 +28,8 @@
 	<string>Main</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -91,11 +91,12 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         starsAppAd.isHidden = isHidden
     }
         
-    public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float){
+    public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float){
         self.translatesAutoresizingMaskIntoConstraints = false
         self.leadingAnchor.constraint(equalTo: viewReference.leadingAnchor, constant: CGFloat(leading)).isActive = true
         self.trailingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: CGFloat(trailling)).isActive = true
         self.topAnchor.constraint(equalTo: viewReference.topAnchor, constant: CGFloat(top)).isActive = true
+        self.bottomAnchor.constraint(equalTo: viewReference.bottomAnchor, constant: CGFloat(botton)).isActive = true
     }
     
     private func setAtributtedDefault(){
