@@ -41,7 +41,7 @@ AdsMobillsSetup.share.startAds(appId: "",
                                 adUnitIntertitialExpensive: "ca-app-pub-3940256099942544/4411468912",
                                 adUnitNativeDefault: "ca-app-pub-3940256099942544/3986624511",
                                 adUnitNativeExpensive: "ca-app-pub-3940256099942544/3986624511")
-````
+```
 
 ## Utilização de Ads Interstitials
 
