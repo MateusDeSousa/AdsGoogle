@@ -12,8 +12,8 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     public static var shareInstance = AdsMobillsNative()
     
-    static var adIdExpansive = ""
-    static var adIdDefault = ""
+    static var adIdExpansive: String!
+    static var adIdDefault: String!
     var viewTemplate: UIView!
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!

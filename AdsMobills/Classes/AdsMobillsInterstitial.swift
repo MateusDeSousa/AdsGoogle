@@ -10,8 +10,8 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     var toController: UIViewController!
     var methodNavigation: MethodNavigation?
     
-    static var adIdExpensive = ""
-    static var adIdDefault = ""
+    static var adIdExpensive: String!
+    static var adIdDefault: String!
     
     static var adReceived: ((Bool) -> Void)?
     

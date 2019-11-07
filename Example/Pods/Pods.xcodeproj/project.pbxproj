@@ -59,7 +59,6 @@
 		4C5B74C8ED2823E85EED4D4D493A3C18 /* GULSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC5F493160A80B64B99B8DC320A6A50 /* GULSwizzler.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4C7D322E4CE005AE5F6F02E224E2AACD /* GULNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A5AF753AC7D586A4A2755A45669EC9F4 /* GULNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D80B1822373171B00B1C702 /* AdsMobillsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */; };
-		4D80B1992373553700B1C702 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B1982373553700B1C702 /* teste.swift */; };
 		4D80B19B237356BE00B1C702 /* AdsMobillsInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B19A237356BD00B1C702 /* AdsMobillsInterstitial.swift */; };
 		4D80B19D237356CA00B1C702 /* AdsMobillsNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B19C237356CA00B1C702 /* AdsMobillsNative.swift */; };
 		4D80B19F237356D300B1C702 /* GADTMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80B19E237356D300B1C702 /* GADTMediumTemplateView.swift */; };
@@ -234,7 +233,6 @@
 		442474DB956A8FFEECD0246FC592763C /* GULNetworkMessageCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkMessageCode.h; path = GoogleUtilities/Network/Private/GULNetworkMessageCode.h; sourceTree = "<group>"; };
 		46541404497FCAD4DB9E4014A5878C86 /* GULAppDelegateSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppDelegateSwizzler.m; path = GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m; sourceTree = "<group>"; };
 		4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsMobillsSetup.swift; path = AdsMobills/Classes/AdsMobillsSetup.swift; sourceTree = "<group>"; };
-		4D80B1982373553700B1C702 /* teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = teste.swift; path = ../AdsMobills/Classes/teste/teste.swift; sourceTree = "<group>"; };
 		4D80B19A237356BD00B1C702 /* AdsMobillsInterstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdsMobillsInterstitial.swift; path = AdsMobills/Classes/AdsMobillsInterstitial.swift; sourceTree = "<group>"; };
 		4D80B19C237356CA00B1C702 /* AdsMobillsNative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdsMobillsNative.swift; path = AdsMobills/Classes/AdsMobillsNative.swift; sourceTree = "<group>"; };
 		4D80B19E237356D300B1C702 /* GADTMediumTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GADTMediumTemplateView.swift; path = AdsMobills/Classes/GADTMediumTemplateView.swift; sourceTree = "<group>"; };
@@ -506,45 +504,6 @@
 			path = "../Target Support Files/FBSnapshotTestCase";
 			sourceTree = "<group>";
 		};
-		4D80B185237350C900B1C702 /* TypesAds */ = {
-			isa = PBXGroup;
-			children = (
-				4D80B187237350ED00B1C702 /* Native */,
-				4D80B186237350E000B1C702 /* Interstitial */,
-			);
-			path = TypesAds;
-			sourceTree = "<group>";
-		};
-		4D80B186237350E000B1C702 /* Interstitial */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interstitial;
-			sourceTree = "<group>";
-		};
-		4D80B187237350ED00B1C702 /* Native */ = {
-			isa = PBXGroup;
-			children = (
-				4D80B18C2373511500B1C702 /* Templates */,
-			);
-			path = Native;
-			sourceTree = "<group>";
-		};
-		4D80B18C2373511500B1C702 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Templates;
-			sourceTree = "<group>";
-		};
-		4D80B197237354BD00B1C702 /* teste */ = {
-			isa = PBXGroup;
-			children = (
-				4D80B1982373553700B1C702 /* teste.swift */,
-			);
-			path = teste;
-			sourceTree = "<group>";
-		};
 		58FB742D137FC2D0527786803819FEBD /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,8 +569,6 @@
 		9C8E8A4914606B388FFE6F6D7CF47116 /* AdsMobills */ = {
 			isa = PBXGroup;
 			children = (
-				4D80B197237354BD00B1C702 /* teste */,
-				4D80B185237350C900B1C702 /* TypesAds */,
 				4D80B1812373171B00B1C702 /* AdsMobillsSetup.swift */,
 				4D80B19A237356BD00B1C702 /* AdsMobillsInterstitial.swift */,
 				4D80B19C237356CA00B1C702 /* AdsMobillsNative.swift */,
@@ -1166,7 +1123,6 @@
 				4D80B19D237356CA00B1C702 /* AdsMobillsNative.swift in Sources */,
 				4D80B19B237356BE00B1C702 /* AdsMobillsInterstitial.swift in Sources */,
 				4D80B1A1237356DC00B1C702 /* GADTSmallTemplateView.swift in Sources */,
-				4D80B1992373553700B1C702 /* teste.swift in Sources */,
 				4D80B1822373171B00B1C702 /* AdsMobillsSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
