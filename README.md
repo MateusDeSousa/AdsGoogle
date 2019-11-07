@@ -9,21 +9,34 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Requisitos
+- Xcode 11
+- Permissões de acesso a esse repositório
 
-## Installation
+## Instalação
 
-AdsMobills is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+AdsMobills está disponivél somento no Bitbucket, para instalar deve-se inserir a seguinte linha em seu PodFile:
 
 ```ruby
-pod 'AdsMobills'
+pod 'AdsMobills', :git => 'https://mateusdevsousa@bitbucket.org/mob_apps/ad-manager-ios.git'
 ```
 
-## Author
+Em seguida executar o comando `pod install` no diretório a qual está localizado seu Podfile. 
 
-mateusdesousa, mateusdevsousa@gmail.com
 
-## License
+## Configurações iniciais no projeto.
 
-AdsMobills is available under the MIT license. See the LICENSE file for more info.
+
+## Utilização de Ads Interstitials
+
+
+## Utilização de Ads Natives
+
+
+## Autor da Lib
+
+Mateus De Sousa, mateusdevsousa@gmail.com
+
+## Licença
+
+AdsMobills is available under the MobApps license. See the LICENSE file for more info.
