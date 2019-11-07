@@ -41,21 +41,26 @@ AdsMobillsSetup.share.startAds(appId: "",
 
 ## Utilização de Ads Interstitials
 
-Para melhor organização do código, referenciar instancia do AdsMobillsInterstitials em uma variavel.
+Para melhor organização do código, referenciar instancia do `AdsMobillsInterstitials.instance` em uma variavel.
 
 ex. `var googleAds = AdsMobillsInterstitial.instance`
 
-- Ao clicar em botões:
+### Casos de exibições de interstitials
+
+- **Ao clicar em botões**:
 
 `googleAds.showInterstitialClick(fromController: UIViewController)`
 
-- Ao executar transição do tipo present.
+- **Ao executar transição do tipo present**:
+
 `googleAds.showInterstitialBeforePresent(fromController: UIViewController, toController: UIViewController)`
 
-- Ao executar transições de tela do tipo Push:
+- **Ao executar transições de tela do tipo Push**:
+
 `googleAds.showInterstitialBeforePush(fromController: UIViewController, toController: UIViewController)`
 
-- Ao abrir o App, forçando exibir interstitial:
+- **Ao abrir o App, forçando exibir interstitial**:
+
 ``` 
 googleAds.showInterstitialByLoadScreen { loaded in
    if loaded{
