@@ -37,6 +37,7 @@ class ViewController: UIViewController{
         let viewNative = GADTMediumTemplateView()
         view.addSubview(viewNative)
         viewNative.setContraintsAd(viewReference: view, leading: 20, trailling: -20, top: 90, botton: 0)
+        viewNative.setStyleElements(backgroundButton: .black)
         AdsMobillsNative.shareInstance.loadAdsNative(fromController: self, viewTemplate: viewNative)
     }
     

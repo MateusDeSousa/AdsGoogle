@@ -23,6 +23,11 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     let indicatorAdd = UILabel()
     let starsAppAd = UIImageView()
     
+    //References constraints
+    var iconContraintsLeading = NSLayoutConstraint()
+    var iconContraintsWidth = NSLayoutConstraint()
+    var iconContraintsHeight = NSLayoutConstraint()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeTempleteMedium()
@@ -51,17 +56,14 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
             hiddenElementes(isHidden: false)
             if let icon = setNativeAd.icon {
                 iconAds.image = icon.image
-                setContraintsIcomAdsMedium(thereIcon: false)
-                iconAds.updateConstraints()
-                self.updateConstraints()
-                super.updateConstraints()
-                
+                updateContraintsIcon()
             }
             titleAd.text = setNativeAd.advertiser
             subtitleAds.text = setNativeAd.headline
             descAds.text = setNativeAd.body
             imageAd.mediaContent = setNativeAd.mediaContent
             buttonGo.setTitle(setNativeAd.callToAction, for: .normal)
+            setWidthButtonGoMedium(title: setNativeAd.callToAction)
         }
     }
     
@@ -89,6 +91,19 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         iconAds.isHidden = isHidden
         indicatorAdd.isHidden = isHidden
         starsAppAd.isHidden = isHidden
+    }
+    
+    public func setStyleElements(backgroundButton: UIColor? = .blue, colorTitleButton: UIColor? = .white, cornerRadiusButton: Float? = 10, cornerRadiusMediaView: Float? = 0, cornerRadiusIconAd: Float? = 0, cornerRadiusTemplate: Float? = 10, backgroundTemplate: UIColor? = .white, colorTitleAd: UIColor? = .black, colorSubTitleAd: UIColor? = UIColor.black.withAlphaComponent(0.7), colorDescriptionAd: UIColor? = UIColor.black.withAlphaComponent(0.7)){
+        buttonGo.backgroundColor = backgroundButton
+        buttonGo.setTitleColor(colorTitleButton, for: .normal)
+        buttonGo.layer.cornerRadius = CGFloat(cornerRadiusButton!)
+        imageAd.layer.cornerRadius = CGFloat(cornerRadiusMediaView!)
+        iconAds.layer.cornerRadius = CGFloat(cornerRadiusIconAd!)
+        self.layer.cornerRadius = CGFloat(cornerRadiusTemplate!)
+        self.backgroundColor = backgroundTemplate
+        titleAd.textColor = colorTitleAd
+        subtitleAds.textColor = colorSubTitleAd
+        descAds.textColor = colorDescriptionAd
     }
         
     public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float){
@@ -126,8 +141,9 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     private func addIconAdsMedium(nameImage: String){
         iconAds.image = UIImage(named: nameImage)
         iconAds.contentMode = .scaleAspectFit
+        iconAds.clipsToBounds = true
         self.addSubview(iconAds)
-        setContraintsIcomAdsMedium(thereIcon: iconAds.image == nil)
+        setContraintsIcomAdsMedium()
     }
     
     private func addTitleAdsMedium(){
@@ -156,12 +172,14 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     
     private func addImageOrVideoAdsMedium(){
         imageAd.contentMode = .scaleAspectFit
+        imageAd.clipsToBounds = true
         self.addSubview(imageAd)
         setContraintsImageOrVideoMedium()
     }
     
     private func addButtonGoMedium(){
         buttonGo.setTitleColor(.white, for: .normal)
+        buttonGo.titleLabel?.font = .boldSystemFont(ofSize: 15)
         buttonGo.backgroundColor = .blue
         buttonGo.layer.cornerRadius = 10
         buttonGo.clipsToBounds = true
@@ -178,22 +196,24 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         
     }
     
-    private func setContraintsIcomAdsMedium(thereIcon: Bool){
-        var widthAnchor = 60
-        var heigthAnchor = 60
-        var leadingAnchor = 20
-        if thereIcon{
-            widthAnchor = 0
-            heigthAnchor = 50
-            leadingAnchor = 0
-        }
+    private func setContraintsIcomAdsMedium(){
         iconAds.translatesAutoresizingMaskIntoConstraints = false
+        
+        iconContraintsHeight = iconAds.heightAnchor.constraint(equalToConstant: 50)
+        iconContraintsWidth = iconAds.widthAnchor.constraint(equalToConstant: 0)
+        iconContraintsLeading = iconAds.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
         NSLayoutConstraint.activate([
-            iconAds.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat(leadingAnchor)),
-            iconAds.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
-            iconAds.widthAnchor.constraint(equalToConstant: CGFloat(widthAnchor)),
-            iconAds.heightAnchor.constraint(equalToConstant: CGFloat(heigthAnchor))
+            iconContraintsHeight,
+            iconContraintsWidth,
+            iconContraintsLeading,
+            iconAds.topAnchor.constraint(equalTo: self.topAnchor, constant: 30)
         ])
+    }
+    
+    private func updateContraintsIcon(){
+        iconContraintsHeight.constant = 60
+        iconContraintsWidth.constant = 60
+        iconContraintsLeading.constant = 20
     }
     
     private func setContraintsTitleAdsMedium(){
@@ -239,8 +259,14 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
             buttonGo.topAnchor.constraint(equalTo: imageAd.bottomAnchor, constant: 15),
             buttonGo.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             buttonGo.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
-            buttonGo.heightAnchor.constraint(equalToConstant: 40),
-            buttonGo.widthAnchor.constraint(equalToConstant: 80)
+            buttonGo.heightAnchor.constraint(equalToConstant: 40)
         ])
+    }
+    
+    private func setWidthButtonGoMedium(title: String?){
+        guard let titleButton = title as NSString? else{ return }
+        let stringSize = titleButton.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
+        let widthText = stringSize.width + 100
+        buttonGo.widthAnchor.constraint(equalToConstant: widthText).isActive = true
     }
 }
