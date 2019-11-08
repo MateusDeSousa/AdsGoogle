@@ -42,7 +42,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         setAtributtedDefault()
         addIndicatorAd()
         addLoading()
-        addIconAdsMedium(nameImage: "swift")
+        addIconAdsMedium(nameImage: "apple")
         addTitleAdsMedium()
         addSubtitleAdsMedium()
         addDescAdsMedium()
@@ -58,6 +58,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
                 iconAds.image = icon.image
                 updateContraintsIcon()
             }
+            nativeAd = setNativeAd
             titleAd.text = setNativeAd.advertiser
             subtitleAds.text = setNativeAd.headline
             descAds.text = setNativeAd.body
@@ -171,6 +172,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     }
     
     private func addImageOrVideoAdsMedium(){
+        iconAds.image = UIImage(named: "apple")
         imageAd.contentMode = .scaleAspectFit
         imageAd.clipsToBounds = true
         self.addSubview(imageAd)

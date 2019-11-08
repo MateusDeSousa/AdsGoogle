@@ -28,7 +28,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdExpansive, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdExpansive, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions, GADNativeMuteThisAdLoaderOptions()])
         adLoad.delegate = AdsMobillsNative.shareInstance
         adLoad.load(GADRequest())
         return adLoad
@@ -38,7 +38,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         
-        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdDefault, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions])
+        let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdDefault, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions, GADNativeMuteThisAdLoaderOptions()])
         adLoad.delegate = AdsMobillsNative.shareInstance
         adLoad.load(GADRequest())
         return adLoad

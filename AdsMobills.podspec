@@ -33,9 +33,9 @@ TODO: Add long description of the pod here.
 #  s.source_files = 'AdsMobills/Classes/*'
   s.source_files = "Classes", "AdsMobills/Classes/**"
   
-  # s.resource_bundles = {
-  #   'AdsMobills' => ['AdsMobills/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'AdsMobills' => ['AdsMobills/Assets/*.png']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
