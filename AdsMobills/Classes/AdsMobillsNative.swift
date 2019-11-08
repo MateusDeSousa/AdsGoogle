@@ -18,10 +18,14 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!
     
-    public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView){
+    //clousere to reloadTable
+    var adReceived: ((Bool) -> Void)?
+    
+    public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView, completion: @escaping ((Bool) -> Void)){
         AdsMobillsNative.fromController = fromController
         self.viewTemplate = viewTemplate
         AdsMobillsNative.adNative = loadExpansiveNative()
+        adReceived = completion
     }
     
     private func loadExpansiveNative() -> GADAdLoader{
@@ -59,6 +63,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
             }else if let view = viewTemplate as? GADTSmallTemplateView{
                 view.setNativeAd = nativeAd
             }
+            adReceived?(true)
         }
     }
     
