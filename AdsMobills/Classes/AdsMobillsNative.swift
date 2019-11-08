@@ -21,7 +21,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     //clousere to reloadTable
     var adReceived: ((Bool) -> Void)?
     
-    public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView, completion: @escaping ((Bool) -> Void)){
+    public func loadAdsNative(fromController: UIViewController, viewTemplate: UIView, completion: ((Bool) -> Void)?){
         AdsMobillsNative.fromController = fromController
         self.viewTemplate = viewTemplate
         AdsMobillsNative.adNative = loadExpansiveNative()
