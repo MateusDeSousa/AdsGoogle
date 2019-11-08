@@ -107,12 +107,17 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         descAds.textColor = colorDescriptionAd
     }
         
-    public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float){
+    public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float?){
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: viewReference.leadingAnchor, constant: CGFloat(leading)).isActive = true
-        self.trailingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: CGFloat(trailling)).isActive = true
-        self.topAnchor.constraint(equalTo: viewReference.topAnchor, constant: CGFloat(top)).isActive = true
-        self.bottomAnchor.constraint(equalTo: viewReference.bottomAnchor, constant: CGFloat(botton)).isActive = true
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: viewReference.leadingAnchor, constant: CGFloat(leading)),
+            self.trailingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: CGFloat(trailling)),
+            self.topAnchor.constraint(equalTo: viewReference.topAnchor, constant: CGFloat(top))
+        ])
+        if let contraintBotton = botton{
+            self.bottomAnchor.constraint(equalTo: viewReference.bottomAnchor, constant: CGFloat(contraintBotton)).isActive = true
+        }
+        
     }
     
     private func setAtributtedDefault(){
