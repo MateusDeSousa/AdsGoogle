@@ -30,7 +30,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     private func loadExpansiveNative() -> GADAdLoader{
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
-        multipleAdsOptions.numberOfAds = 5
+        multipleAdsOptions.numberOfAds = 1
         
         let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdExpansive, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions, GADNativeMuteThisAdLoaderOptions()])
         adLoad.delegate = AdsMobillsNative.shareInstance
@@ -40,7 +40,7 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
     
     private func loadDefaultNative() -> GADAdLoader{
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
-        multipleAdsOptions.numberOfAds = 5
+        multipleAdsOptions.numberOfAds = 1
         
         let adLoad = GADAdLoader(adUnitID: AdsMobillsNative.adIdDefault, rootViewController: AdsMobillsNative.fromController, adTypes: [.unifiedNative], options: [multipleAdsOptions, GADNativeMuteThisAdLoaderOptions()])
         adLoad.delegate = AdsMobillsNative.shareInstance

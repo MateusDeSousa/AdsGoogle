@@ -64,7 +64,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
             descAds.text = setNativeAd.body
             imageAd.mediaContent = setNativeAd.mediaContent
             buttonGo.setTitle(setNativeAd.callToAction, for: .normal)
-            setWidthButtonGoMedium(title: setNativeAd.callToAction)
+                setWidthButtonGoMedium(title: setNativeAd.callToAction)
         }
     }
     
@@ -273,7 +273,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     private func setWidthButtonGoMedium(title: String?){
         guard let titleButton = title as NSString? else{ return }
         let stringSize = titleButton.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
-        let widthText = stringSize.width + 100
+        let widthText = stringSize.width + 50
         buttonGo.widthAnchor.constraint(equalToConstant: widthText).isActive = true
     }
 }
