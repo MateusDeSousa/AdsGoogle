@@ -67,6 +67,17 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         hiddenElementes(isHidden: true)
     }
     
+    public func setStyleElements(backgroundButton: UIColor? = .blue, colorTitleButton: UIColor? = .white, cornerRadiusButton: Float? = 10, cornerRadiusMediaView: Float? = 10, cornerRadiusIconAd: Float? = 10, cornerRadiusTemplate: Float? = 10, backgroundTemplate: UIColor? = .white, colorTitleAd: UIColor? = .black, colorDescriptionAd: UIColor? = UIColor.black.withAlphaComponent(0.7)){
+        buttonGo.backgroundColor = backgroundButton
+        buttonGo.setTitleColor(colorTitleButton, for: .normal)
+        buttonGo.layer.cornerRadius = CGFloat(cornerRadiusButton!)
+        iconAds.layer.cornerRadius = CGFloat(cornerRadiusIconAd!)
+        self.layer.cornerRadius = CGFloat(cornerRadiusTemplate!)
+        self.backgroundColor = backgroundTemplate
+        titleAd.textColor = colorTitleAd
+        descAds.textColor = colorDescriptionAd
+    }
+    
     public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float?){
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
