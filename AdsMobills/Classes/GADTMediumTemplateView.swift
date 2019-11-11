@@ -42,7 +42,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         setAtributtedDefault()
         addIndicatorAd()
         addLoading()
-        addIconAdsMedium(nameImage: "apple")
+        addIconAdsMedium(nameImage: "rate-10")
         addTitleAdsMedium()
         addSubtitleAdsMedium()
         addDescAdsMedium()
@@ -55,7 +55,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         didSet{
             hiddenElementes(isHidden: false)
             if let icon = setNativeAd.icon {
-                iconAds.image = icon.image
+//                iconAds.image = icon.image
                 updateContraintsIcon()
             }
             nativeAd = setNativeAd
@@ -94,7 +94,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         starsAppAd.isHidden = isHidden
     }
     
-    public func setStyleElements(backgroundButton: UIColor? = .blue, colorTitleButton: UIColor? = .white, cornerRadiusButton: Float? = 10, cornerRadiusMediaView: Float? = 0, cornerRadiusIconAd: Float? = 0, cornerRadiusTemplate: Float? = 10, backgroundTemplate: UIColor? = .white, colorTitleAd: UIColor? = .black, colorSubTitleAd: UIColor? = UIColor.black.withAlphaComponent(0.7), colorDescriptionAd: UIColor? = UIColor.black.withAlphaComponent(0.7)){
+    public func setStyleElements(backgroundButton: UIColor? = .blue, colorTitleButton: UIColor? = .white, cornerRadiusButton: Float? = 10, cornerRadiusMediaView: Float? = 10, cornerRadiusIconAd: Float? = 10, cornerRadiusTemplate: Float? = 10, backgroundTemplate: UIColor? = .white, colorTitleAd: UIColor? = .black, colorSubTitleAd: UIColor? = UIColor.black.withAlphaComponent(0.7), colorDescriptionAd: UIColor? = UIColor.black.withAlphaComponent(0.7)){
         buttonGo.backgroundColor = backgroundButton
         buttonGo.setTitleColor(colorTitleButton, for: .normal)
         buttonGo.layer.cornerRadius = CGFloat(cornerRadiusButton!)
@@ -117,8 +117,31 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         if let contraintBotton = botton{
             self.bottomAnchor.constraint(equalTo: viewReference.bottomAnchor, constant: CGFloat(contraintBotton)).isActive = true
         }
-        
     }
+    
+//    class func getResourcesBundle() -> Bundle? {
+//        var bundle: Bundle? = nil
+//        if let url = Bundle(for: self).url(forResource: "GADTMediumTemplateView", withExtension: "bundle") {
+//            bundle = Bundle(url: url)
+//        }
+//        return bundle
+//    }
+//
+//    func loadImage(fromResourceBundle imageName: String?) -> UIImage? {
+//        let bundle = GADTMediumTemplateView.getResourcesBundle()
+//        let imageFileName = "\(imageName ?? "").png"
+//        let image = UIImage(named: imageFileName, in: bundle, compatibleWith: nil)
+//        return image
+//    }
+//
+//    class func loadImage(name: String) -> UIImage? {
+//        let podBundle = Bundle(for: GADTMediumTemplateView.self)
+//        if let url = podBundle.url(forResource: "AdsMobills", withExtension: "bundle") {
+//            let bundle = Bundle(url: url)
+//            return UIImage(named: name, in: bundle, compatibleWith: nil)
+//        }
+//        return nil
+//    }
     
     private func setAtributtedDefault(){
         self.backgroundColor = .white
@@ -145,8 +168,9 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     }
     
     private func addIconAdsMedium(nameImage: String){
-        iconAds.image = UIImage(named: nameImage)
+//        iconAds.image = GADTMediumTemplateView.loadImage(name: "rate-1")
         iconAds.contentMode = .scaleAspectFit
+        iconAds.layer.cornerRadius = 10
         iconAds.clipsToBounds = true
         self.addSubview(iconAds)
         setContraintsIcomAdsMedium()
@@ -179,6 +203,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     private func addImageOrVideoAdsMedium(){
         iconAds.image = UIImage(named: "apple")
         imageAd.contentMode = .scaleAspectFit
+        imageAd.layer.cornerRadius = 10
         imageAd.clipsToBounds = true
         self.addSubview(imageAd)
         setContraintsImageOrVideoMedium()

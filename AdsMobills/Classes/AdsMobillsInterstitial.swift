@@ -22,6 +22,8 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
         self.interstitial = loadExpensiveInterstitial()
     }
     
+    
+    
     public func loadExpensiveInterstitial() -> GADInterstitial{
         let interstitial = GADInterstitial(adUnitID: AdsMobillsInterstitial.adIdExpensive)
         interstitial.delegate = AdsMobillsInterstitial.instance
@@ -82,7 +84,6 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     private func pushController(){
         self.fromController.navigationController?.pushViewController(self.toController, animated: true)
     }
-    
     
     //MARK: Methods delegate
     

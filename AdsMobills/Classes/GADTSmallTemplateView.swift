@@ -12,32 +12,84 @@ import GoogleMobileAds
 @available(iOS 9.0, *)
 public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     
-    let container = UIView()
     let titleAd = UILabel()
     let subtitleAds = UILabel()
     let descAds = UILabel()
-    let imageAd = GADMediaView()
     let buttonGo = UIButton()
-    let iconAds = UIImageView()
+    let iconAds = GADMediaView()
     let indicatorAdd = UILabel()
     let starsAppAd = UIImageView()
+    let loading = UIActivityIndicatorView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeTemplateSmall()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initializeTemplateSmall()
+    }
     
     public var setNativeAd: GADUnifiedNativeAd! {
         didSet{
-//            titleAd.text = setNativeAd.
-            imageAd.mediaContent = setNativeAd.mediaContent
+            hiddenElementes(isHidden: false)
+            self.nativeAd = setNativeAd
+            iconAds.mediaContent = setNativeAd.mediaContent
+            titleAd.text = setNativeAd.advertiser
             buttonGo.setTitle(setNativeAd.callToAction, for: .normal)
-//            imageAd.image = setNativeAd.icon
         }
     }
     
     public func initializeTemplateSmall(){
         addViewContainerSmall()
+        addLoading()
         addIndicatorAd()
         addImageSmall()
         addNameAddSmall()
         addStarsAppImageAd()
         addButtonGoSmall()
+        hiddenElementes(isHidden: true)
+    }
+    
+    public func setContraintsAd(viewReference: UIView,leading: Float, trailling: Float, top: Float, botton: Float?){
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: viewReference.leadingAnchor, constant: CGFloat(leading)),
+            self.trailingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: CGFloat(trailling)),
+            self.topAnchor.constraint(equalTo: viewReference.topAnchor, constant: CGFloat(top))
+        ])
+        if let contraintBotton = botton{
+            self.bottomAnchor.constraint(equalTo: viewReference.bottomAnchor, constant: CGFloat(contraintBotton)).isActive = true
+        }
+    }
+    
+    private func hiddenElementes(isHidden: Bool){
+        
+        titleAd.isHidden = isHidden
+        subtitleAds.isHidden = isHidden
+        descAds.isHidden = isHidden
+        buttonGo.isHidden = isHidden
+        iconAds.isHidden = isHidden
+        indicatorAdd.isHidden = isHidden
+        starsAppAd.isHidden = isHidden
+        loading.isHidden = !isHidden
+        isHidden ? loading.startAnimating() : loading.stopAnimating()
+    }
+    
+    private func addLoading(){
+        loading.activityIndicatorViewStyle = .gray
+        self.addSubview(loading)
+        setContraintsLoadingSmall()
+    }
+    
+    private func setContraintsLoadingSmall(){
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loading.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+            loading.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0)
+        ])
+        
     }
     
     private func addIndicatorAd(){
@@ -47,34 +99,31 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         indicatorAdd.textAlignment = .center
         indicatorAdd.font = .boldSystemFont(ofSize: 15)
         indicatorAdd.clipsToBounds = false
-        container.addSubview(indicatorAdd)
+        self.addSubview(indicatorAdd)
         setContraintsIndicatorAdd()
     }
     
     private func setContraintsIndicatorAdd(){
         indicatorAdd.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            indicatorAdd.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 0),
-            indicatorAdd.topAnchor.constraint(equalTo: container.topAnchor, constant: 0),
+            indicatorAdd.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            indicatorAdd.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             indicatorAdd.widthAnchor.constraint(equalToConstant: 25)
         ])
     }
     
     private func addViewContainerSmall(){
-        container.layer.cornerRadius = 10
-        container.layer.borderColor = UIColor.gray.cgColor
-        container.layer.borderWidth = 0.2
-        container.clipsToBounds = true
-        container.backgroundColor = .white
-        self.addSubview(container)
-        setContraintsContainerSmall()
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 0.2
+        self.clipsToBounds = true
+        self.backgroundColor = .white
     }
 
     
     private func addImageSmall(){
-//        imageAd.image = UIImage(named: "swift")
-        imageAd.contentMode = .scaleToFill
-        container.addSubview(imageAd)
+        iconAds.contentMode = .scaleAspectFill
+        self.addSubview(iconAds)
         setContraintsImageSmall()
     }
     
@@ -82,13 +131,13 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         titleAd.font = .boldSystemFont(ofSize: 15)
         titleAd.text = "Teste do Ad"
         titleAd.textColor = .black
-        container.addSubview(titleAd)
+        self.addSubview(titleAd)
         setContraintsNameAdSmall()
     }
     
     private func addStarsAppImageAd(){
         starsAppAd.image = UIImage(named: "stars")
-        container.addSubview(starsAppAd)
+        self.addSubview(starsAppAd)
         setConstraintsStarsAppAdSmall()
     }
     
@@ -98,46 +147,44 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         buttonGo.clipsToBounds = true
         buttonGo.setTitle("Instalar", for: .normal)
         buttonGo.setTitleColor(.white, for: .normal)
-        container.addSubview(buttonGo)
+        self.addSubview(buttonGo)
         setContraintsButtonGoSmall()
     }
     
-    private func setContraintsContainerSmall(){
-        let margins = self.layoutMarginsGuide
-        container.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20),
-            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            container.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-//            container.heightAnchor.constraint(equalToConstant: 100)
-        ])
-    }
+//    private func setContraintsContainerSmall(){
+//        let margins = self.layoutMarginsGuide
+//        container.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            container.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20),
+//            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+//            container.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
+//        ])
+//    }
 
     private func setContraintsImageSmall(){
-        imageAd.translatesAutoresizingMaskIntoConstraints = false
+        iconAds.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageAd.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 0),
-            imageAd.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
-            imageAd.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
-            imageAd.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -15),
-            imageAd.heightAnchor.constraint(equalToConstant:60),
-            imageAd.widthAnchor.constraint(equalToConstant: 80),
-//            imageAd.widthAnchor.contr
+            iconAds.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+            iconAds.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            iconAds.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            iconAds.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            iconAds.heightAnchor.constraint(equalToConstant:65),
+            iconAds.widthAnchor.constraint(equalToConstant: 80),
         ])
     }
     
     private func setContraintsNameAdSmall(){
         titleAd.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleAd.centerYAnchor.constraint(equalTo: imageAd.centerYAnchor, constant: -10),
-            titleAd.leadingAnchor.constraint(equalTo: imageAd.trailingAnchor, constant: 5)
+            titleAd.centerYAnchor.constraint(equalTo: iconAds.centerYAnchor, constant: -10),
+            titleAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 5)
         ])
     }
     
     private func setConstraintsStarsAppAdSmall(){
         starsAppAd.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starsAppAd.leadingAnchor.constraint(equalTo: imageAd.trailingAnchor, constant: 20),
+            starsAppAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 20),
             starsAppAd.topAnchor.constraint(equalTo: titleAd.bottomAnchor, constant: 10),
             starsAppAd.heightAnchor.constraint(equalToConstant: 20),
             starsAppAd.widthAnchor.constraint(equalToConstant: 100)
@@ -147,10 +194,10 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     private func setContraintsButtonGoSmall(){
         buttonGo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            buttonGo.topAnchor.constraint(equalTo: container.topAnchor, constant: 30),
+            buttonGo.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
             buttonGo.widthAnchor.constraint(equalToConstant: 90),
             buttonGo.heightAnchor.constraint(equalToConstant: 40),
-            buttonGo.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10)
+            buttonGo.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
         ])
     }
 }
