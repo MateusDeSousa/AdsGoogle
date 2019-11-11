@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        adUnitIntertitialDefault: "ca-app-pub-3940256099942544/4411468910",
                                        adUnitIntertitialExpensive: "ca-app-pub-3940256099942544/4411468912",
                                        adUnitNativeDefault: "ca-app-pub-3940256099942544/3986624511",
-                                       adUnitNativeExpensive: "ca-app-pub-3940256099942544/3986624511")
+                                       adUnitNativeExpensive: "/6499/example/native-video")
         return true
     }
 

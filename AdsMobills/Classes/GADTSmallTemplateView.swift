@@ -13,13 +13,15 @@ import GoogleMobileAds
 public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     
     let titleAd = UILabel()
-    let subtitleAds = UILabel()
     let descAds = UILabel()
     let buttonGo = UIButton()
     let iconAds = GADMediaView()
     let indicatorAdd = UILabel()
     let starsAppAd = UIImageView()
     let loading = UIActivityIndicatorView()
+    
+    //reference constraints
+    var titleConstraintsTop = NSLayoutConstraint()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +38,19 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
             hiddenElementes(isHidden: false)
             self.nativeAd = setNativeAd
             iconAds.mediaContent = setNativeAd.mediaContent
-            titleAd.text = setNativeAd.advertiser
+            if let textTitle = setNativeAd.advertiser {
+                titleAd.text = textTitle
+            }else{
+                titleAd.text = setNativeAd.headline
+            }
+            if let _ = setNativeAd.store{
+                descAds.isHidden = true
+                applyQtdStars(number: setNativeAd.starRating)
+            }else{
+                starsAppAd.isHidden = true
+                titleConstraintsTop.constant = -23
+                descAds.text = setNativeAd.body
+            }
             buttonGo.setTitle(setNativeAd.callToAction, for: .normal)
         }
     }
@@ -46,9 +60,10 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         addLoading()
         addIndicatorAd()
         addImageSmall()
+        addButtonGoSmall()
         addNameAddSmall()
         addStarsAppImageAd()
-        addButtonGoSmall()
+        addDescAdsMedium()
         hiddenElementes(isHidden: true)
     }
     
@@ -67,7 +82,6 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     private func hiddenElementes(isHidden: Bool){
         
         titleAd.isHidden = isHidden
-        subtitleAds.isHidden = isHidden
         descAds.isHidden = isHidden
         buttonGo.isHidden = isHidden
         iconAds.isHidden = isHidden
@@ -136,13 +150,42 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     }
     
     private func addStarsAppImageAd(){
-        starsAppAd.image = UIImage(named: "stars")
+        starsAppAd.image = UIImage(named: "")
+        starsAppAd.contentMode = .scaleAspectFit
         self.addSubview(starsAppAd)
         setConstraintsStarsAppAdSmall()
     }
     
+    private func applyQtdStars(number: NSDecimalNumber?){
+        if let numberStars = number as? Double{
+            if numberStars <= 0.5{
+                starsAppAd.image = UIImage(named: "rate-10")
+            }else if numberStars > 0.5 && numberStars <= 1.0{
+                starsAppAd.image = UIImage(named: "rate-9")
+            }else if numberStars > 1.0 && numberStars <= 1.5{
+                starsAppAd.image = UIImage(named: "rate-8")
+            }else if numberStars > 1.5 && numberStars <= 2.0{
+                starsAppAd.image = UIImage(named: "rate-7")
+            }else if numberStars > 2.0 && numberStars <= 2.5{
+                starsAppAd.image = UIImage(named: "rate-6")
+            }else if numberStars > 2.5 && numberStars <= 3.0{
+                starsAppAd.image = UIImage(named: "rate-5")
+            }else if numberStars > 3.0 && numberStars <= 3.5{
+                starsAppAd.image = UIImage(named: "rate-4")
+            }else if numberStars > 3.5 && numberStars <= 4.0{
+                starsAppAd.image = UIImage(named: "rate-3")
+            }else if numberStars > 4.0 && numberStars <= 4.5{
+                starsAppAd.image = UIImage(named: "rate-2")
+            }else if numberStars > 4.5 && numberStars <= 5.0{
+                starsAppAd.image = UIImage(named: "rate-1")
+            }
+        }
+        
+    }
+    
     private func addButtonGoSmall(){
         buttonGo.backgroundColor = .blue
+        buttonGo.titleLabel?.font = .boldSystemFont(ofSize: 15)
         buttonGo.layer.cornerRadius = 10
         buttonGo.clipsToBounds = true
         buttonGo.setTitle("Instalar", for: .normal)
@@ -151,15 +194,22 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
         setContraintsButtonGoSmall()
     }
     
-//    private func setContraintsContainerSmall(){
-//        let margins = self.layoutMarginsGuide
-//        container.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            container.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20),
-//            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-//            container.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
-//        ])
-//    }
+    private func addDescAdsMedium(){
+        descAds.textColor = UIColor.black.withAlphaComponent(0.7)
+        descAds.font = .systemFont(ofSize: 12)
+        descAds.numberOfLines = 0
+        self.addSubview(descAds)
+        setContraintsDescAdsMedium()
+    }
+    
+    private func setContraintsDescAdsMedium(){
+        descAds.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            descAds.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 10),
+            descAds.topAnchor.constraint(equalTo: titleAd.bottomAnchor, constant: 5),
+            descAds.trailingAnchor.constraint(equalTo: buttonGo.leadingAnchor, constant: -20)
+        ])
+    }
 
     private func setContraintsImageSmall(){
         iconAds.translatesAutoresizingMaskIntoConstraints = false
@@ -175,17 +225,19 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     
     private func setContraintsNameAdSmall(){
         titleAd.translatesAutoresizingMaskIntoConstraints = false
+        titleConstraintsTop = titleAd.centerYAnchor.constraint(equalTo: iconAds.centerYAnchor, constant: -10)
         NSLayoutConstraint.activate([
-            titleAd.centerYAnchor.constraint(equalTo: iconAds.centerYAnchor, constant: -10),
-            titleAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 5)
+            titleConstraintsTop,
+            titleAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 10),
+            titleAd.trailingAnchor.constraint(equalTo: buttonGo.leadingAnchor, constant: -20)
         ])
     }
     
     private func setConstraintsStarsAppAdSmall(){
         starsAppAd.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starsAppAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 20),
-            starsAppAd.topAnchor.constraint(equalTo: titleAd.bottomAnchor, constant: 10),
+            starsAppAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 10),
+            starsAppAd.topAnchor.constraint(equalTo: titleAd.bottomAnchor, constant: 7),
             starsAppAd.heightAnchor.constraint(equalToConstant: 20),
             starsAppAd.widthAnchor.constraint(equalToConstant: 100)
         ])
