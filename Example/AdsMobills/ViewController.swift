@@ -10,7 +10,7 @@ import UIKit
 import AdsMobills
 import GoogleMobileAds
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, GADUnifiedNativeAdDelegate{
     
     
 //    var adViewTemplete = GADTSmallTemplateView()

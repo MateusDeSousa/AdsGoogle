@@ -12,7 +12,6 @@ import GoogleMobileAds
 @available(iOS 9.0, *)
 public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     
-    let container = UIView()
     let loading = UIActivityIndicatorView()
     let titleAd = UILabel()
     let subtitleAds = UILabel()
@@ -38,7 +37,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         initializeTempleteMedium()
     }
     
-    public func initializeTempleteMedium(){
+    private func initializeTempleteMedium(){
         setAtributtedDefault()
         addIndicatorAd()
         addLoading()
@@ -55,7 +54,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     public var setNativeAd: GADUnifiedNativeAd! {
         didSet{
             hiddenElementes(isHidden: false)
-            nativeAd = setNativeAd
+            self.nativeAd = setNativeAd
             if let icon = setNativeAd.icon {
                 iconAds.image = icon.image
                 updateContraintsIcon()
@@ -163,31 +162,8 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         }
     }
     
-//    class func getResourcesBundle() -> Bundle? {
-//        var bundle: Bundle? = nil
-//        if let url = Bundle(for: self).url(forResource: "GADTMediumTemplateView", withExtension: "bundle") {
-//            bundle = Bundle(url: url)
-//        }
-//        return bundle
-//    }
-//
-//    func loadImage(fromResourceBundle imageName: String?) -> UIImage? {
-//        let bundle = GADTMediumTemplateView.getResourcesBundle()
-//        let imageFileName = "\(imageName ?? "").png"
-//        let image = UIImage(named: imageFileName, in: bundle, compatibleWith: nil)
-//        return image
-//    }
-//
-//    class func loadImage(name: String) -> UIImage? {
-//        let podBundle = Bundle(for: GADTMediumTemplateView.self)
-//        if let url = podBundle.url(forResource: "AdsMobills", withExtension: "bundle") {
-//            let bundle = Bundle(url: url)
-//            return UIImage(named: name, in: bundle, compatibleWith: nil)
-//        }
-//        return nil
-//    }
-    
     private func setAtributtedDefault(){
+        self.isUserInteractionEnabled = true
         self.backgroundColor = .white
         self.layer.borderWidth = 0.2
         self.layer.borderColor = UIColor.gray.cgColor
@@ -253,6 +229,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     }
     
     private func addButtonGoMedium(){
+        buttonGo.isUserInteractionEnabled = false
         buttonGo.setTitleColor(.white, for: .normal)
         buttonGo.titleLabel?.font = .boldSystemFont(ofSize: 15)
         buttonGo.backgroundColor = .blue

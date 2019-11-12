@@ -8,15 +8,15 @@
 import Foundation
 import GoogleMobileAds
 
-public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
+public class AdsMobillsNative: NSObject {
     
     public static var shareInstance = AdsMobillsNative()
     
     static var adIdExpansive: String!
     static var adIdDefault: String!
-    var viewTemplate: UIView!
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!
+    private var viewTemplate: UIView!
     
     //clousere to reloadTable
     var adReceived: ((Bool) -> Void)?
@@ -47,7 +47,9 @@ public class AdsMobillsNative: NSObject, GADUnifiedNativeAdLoaderDelegate {
         adLoad.load(GADRequest())
         return adLoad
     }
-    
+}
+
+extension AdsMobillsNative: GADUnifiedNativeAdLoaderDelegate{
     public func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
         let adLoadId = AdsMobillsNative.adNative
         if adLoadId?.adUnitID == AdsMobillsNative.adIdExpansive{
