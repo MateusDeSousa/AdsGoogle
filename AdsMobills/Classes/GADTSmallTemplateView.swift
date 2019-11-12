@@ -113,7 +113,6 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
             loading.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
             loading.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0)
         ])
-        
     }
     
     private func addIndicatorAd(){
@@ -190,7 +189,6 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
                 starsAppAd.image = UIImage(named: "rate-1")
             }
         }
-        
     }
     
     private func addButtonGoSmall(){

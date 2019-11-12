@@ -42,8 +42,9 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         setAtributtedDefault()
         addIndicatorAd()
         addLoading()
-        addIconAdsMedium(nameImage: "rate-10")
+        addIconAdsMedium()
         addTitleAdsMedium()
+        addStarsAppImageAd()
         addSubtitleAdsMedium()
         addDescAdsMedium()
         addImageOrVideoAdsMedium()
@@ -54,13 +55,23 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     public var setNativeAd: GADUnifiedNativeAd! {
         didSet{
             hiddenElementes(isHidden: false)
+            nativeAd = setNativeAd
             if let icon = setNativeAd.icon {
-//                iconAds.image = icon.image
+                iconAds.image = icon.image
                 updateContraintsIcon()
             }
-            nativeAd = setNativeAd
-            titleAd.text = setNativeAd.advertiser
-            subtitleAds.text = setNativeAd.headline
+            if let textTitle = setNativeAd.advertiser {
+                titleAd.text = textTitle
+            }else{
+                titleAd.text = setNativeAd.headline
+            }
+            if let _ = setNativeAd.store{
+                subtitleAds.isHidden = true
+                applyQtdStars(number: setNativeAd.starRating)
+            }else{
+                starsAppAd.isHidden = true
+                subtitleAds.text = setNativeAd.headline
+            }
             descAds.text = setNativeAd.body
             imageAd.mediaContent = setNativeAd.mediaContent
             buttonGo.setTitle(setNativeAd.callToAction, for: .normal)
@@ -119,6 +130,39 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         }
     }
     
+    private func addStarsAppImageAd(){
+        starsAppAd.image = UIImage(named: "")
+        starsAppAd.contentMode = .scaleAspectFit
+        self.addSubview(starsAppAd)
+        setConstraintsStarsAppAdSmall()
+    }
+    
+    private func applyQtdStars(number: NSDecimalNumber?){
+        if let numberStars = number as? Double{
+            if numberStars <= 0.5{
+                starsAppAd.image = UIImage(named: "rate-10")
+            }else if numberStars > 0.5 && numberStars <= 1.0{
+                starsAppAd.image = UIImage(named: "rate-9")
+            }else if numberStars > 1.0 && numberStars <= 1.5{
+                starsAppAd.image = UIImage(named: "rate-8")
+            }else if numberStars > 1.5 && numberStars <= 2.0{
+                starsAppAd.image = UIImage(named: "rate-7")
+            }else if numberStars > 2.0 && numberStars <= 2.5{
+                starsAppAd.image = UIImage(named: "rate-6")
+            }else if numberStars > 2.5 && numberStars <= 3.0{
+                starsAppAd.image = UIImage(named: "rate-5")
+            }else if numberStars > 3.0 && numberStars <= 3.5{
+                starsAppAd.image = UIImage(named: "rate-4")
+            }else if numberStars > 3.5 && numberStars <= 4.0{
+                starsAppAd.image = UIImage(named: "rate-3")
+            }else if numberStars > 4.0 && numberStars <= 4.5{
+                starsAppAd.image = UIImage(named: "rate-2")
+            }else if numberStars > 4.5 && numberStars <= 5.0{
+                starsAppAd.image = UIImage(named: "rate-1")
+            }
+        }
+    }
+    
 //    class func getResourcesBundle() -> Bundle? {
 //        var bundle: Bundle? = nil
 //        if let url = Bundle(for: self).url(forResource: "GADTMediumTemplateView", withExtension: "bundle") {
@@ -167,8 +211,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
         setContraintsLoadingMedium()
     }
     
-    private func addIconAdsMedium(nameImage: String){
-//        iconAds.image = GADTMediumTemplateView.loadImage(name: "rate-1")
+    private func addIconAdsMedium(){
         iconAds.contentMode = .scaleAspectFit
         iconAds.layer.cornerRadius = 10
         iconAds.clipsToBounds = true
@@ -282,6 +325,16 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
             imageAd.topAnchor.constraint(equalTo: descAds.bottomAnchor, constant: 15),
             imageAd.heightAnchor.constraint(equalToConstant: 200),
             imageAd.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setConstraintsStarsAppAdSmall(){
+        starsAppAd.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            starsAppAd.leadingAnchor.constraint(equalTo: iconAds.trailingAnchor, constant: 20),
+            starsAppAd.topAnchor.constraint(equalTo: titleAd.bottomAnchor, constant: 7),
+            starsAppAd.heightAnchor.constraint(equalToConstant: 20),
+            starsAppAd.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
