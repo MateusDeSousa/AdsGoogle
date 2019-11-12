@@ -5,10 +5,10 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     
     public static var instance = AdsMobillsInterstitial()
     
-    var interstitial: GADInterstitial!
-    var fromController: UIViewController!
-    var toController: UIViewController!
-    var methodNavigation: MethodNavigation?
+    static var interstitial: GADInterstitial!
+    static var fromController: UIViewController!
+    static var toController: UIViewController!
+    static var methodNavigation: MethodNavigation?
     
     static var adIdExpensive: String!
     static var adIdDefault: String!
@@ -19,7 +19,7 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         AdsMobillsInterstitial.adIdDefault = adIdDefault
         AdsMobillsInterstitial.adIdExpensive = adIdExpensive
-        self.interstitial = loadExpensiveInterstitial()
+        AdsMobillsInterstitial.interstitial = loadExpensiveInterstitial()
     }
     
     
@@ -39,22 +39,22 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     }
     //Ao clicar em botões
     public func showInterstitialClick(fromController: UIViewController){
-        self.methodNavigation = .none
-        self.interstitial.present(fromRootViewController: fromController)
+        AdsMobillsInterstitial.methodNavigation = .none
+        AdsMobillsInterstitial.interstitial.present(fromRootViewController: fromController)
     }
     
     //Ao executar transições
     private func showInterstitial(fromController: UIViewController){
-        self.interstitial.present(fromRootViewController: fromController)
+        AdsMobillsInterstitial.interstitial.present(fromRootViewController: fromController)
     }
     
     //Ao dar present
     public func showInterstitialBeforePresent(fromController: UIViewController, toController: UIViewController){
-        self.fromController = fromController
-        self.toController = toController
-        self.methodNavigation = .present
-        if self.interstitial.isReady{
-            showInterstitial(fromController: self.fromController)
+        AdsMobillsInterstitial.fromController = fromController
+        AdsMobillsInterstitial.toController = toController
+        AdsMobillsInterstitial.methodNavigation = .present
+        if AdsMobillsInterstitial.interstitial.isReady{
+            showInterstitial(fromController: AdsMobillsInterstitial.fromController)
         }else{
             presentController()
         }
@@ -62,11 +62,11 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     
     //Ao dar push
     public func showInterstitialBeforePush(fromController: UIViewController, toController: UIViewController){
-        self.fromController = fromController
-        self.toController = toController
-        self.methodNavigation = .push
-        if self.interstitial.isReady{
-            showInterstitial(fromController: self.fromController)
+        AdsMobillsInterstitial.fromController = fromController
+        AdsMobillsInterstitial.toController = toController
+        AdsMobillsInterstitial.methodNavigation = .push
+        if AdsMobillsInterstitial.interstitial.isReady{
+            showInterstitial(fromController: AdsMobillsInterstitial.fromController)
         }else{
             pushController()
         }
@@ -78,18 +78,22 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     }
     
     private func presentController(){
-        self.fromController.present(self.toController, animated: true, completion: nil)
+        AdsMobillsInterstitial.fromController.present(AdsMobillsInterstitial.toController, animated: true, completion: nil)
     }
     
     private func pushController(){
-        self.fromController.navigationController?.pushViewController(self.toController, animated: true)
+        AdsMobillsInterstitial.fromController.navigationController?.pushViewController(AdsMobillsInterstitial.toController, animated: true)
+    }
+    
+    private func popController(){
+        AdsMobillsInterstitial.fromController.navigationController?.popViewController(animated: true)
     }
     
     //MARK: Methods delegate
     
     public func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        self.interstitial = loadExpensiveInterstitial()
-        switch self.methodNavigation {
+        AdsMobillsInterstitial.interstitial = loadExpensiveInterstitial()
+        switch AdsMobillsInterstitial.methodNavigation {
         case .present:
             presentController()
         default:
@@ -99,19 +103,21 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
     }
     
     public func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-        self.interstitial = loadExpensiveInterstitial()
-        switch self.methodNavigation {
+        AdsMobillsInterstitial.interstitial = loadExpensiveInterstitial()
+        switch AdsMobillsInterstitial.methodNavigation {
         case .push:
             pushController()
+        case .pop:
+            popController()
         default:
             break
         }
     }
     
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        let intertitialId = self.interstitial
+        let intertitialId = AdsMobillsInterstitial.interstitial
         if intertitialId?.adUnitID == AdsMobillsInterstitial.adIdExpensive{
-            self.interstitial = loadDefaultInterstitial()
+            AdsMobillsInterstitial.interstitial = loadDefaultInterstitial()
             return
         }
         AdsMobillsInterstitial.adReceived?(false)
@@ -122,7 +128,7 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
         AdsMobillsInterstitial.adReceived?(true)
     }
     enum MethodNavigation{
-        case push, present
+        case push, present, pop
     }
 
 }
