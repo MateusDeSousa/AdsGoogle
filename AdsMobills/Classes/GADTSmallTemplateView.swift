@@ -103,7 +103,6 @@ public class GADTSmallTemplateView: GADUnifiedNativeAdView {
     }
     
     private func addLoading(){
-        loading.activityIndicatorViewStyle = .gray
         self.addSubview(loading)
         setContraintsLoadingSmall()
     }

@@ -72,6 +72,17 @@ public class AdsMobillsInterstitial: NSObject, GADInterstitialDelegate{
         }
     }
     
+    //Ao dar Pop
+    public func showInterstitialBeforePop(fromController: UIViewController){
+        AdsMobillsInterstitial.fromController = fromController
+        AdsMobillsInterstitial.methodNavigation = .pop
+        if AdsMobillsInterstitial.interstitial.isReady{
+            showInterstitial(fromController: AdsMobillsInterstitial.fromController)
+        }else{
+            popController()
+        }
+    }
+    
     //Ao abrir o app
     public func showInterstitialByLoadScreen(completion: @escaping ((Bool) -> Void)){
         AdsMobillsInterstitial.adReceived = completion
