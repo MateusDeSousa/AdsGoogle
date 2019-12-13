@@ -37,7 +37,6 @@ class ViewController: UIViewController, GADUnifiedNativeAdDelegate{
         let viewNative = GADTMediumTemplateView()
         view.addSubview(viewNative)
         viewNative.setContraintsAd(viewReference: view, leading: 0, trailling: 0, top: 90, botton: nil)
-//        viewNative.setStyleElements(backgroundButton: .black)
         AdsMobillsNative.shareInstance.loadAdsNative(fromController: self, viewTemplate: viewNative, completion: nil)
     }
     

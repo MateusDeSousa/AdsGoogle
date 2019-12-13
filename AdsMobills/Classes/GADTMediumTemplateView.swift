@@ -30,6 +30,17 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeTempleteMedium()
+        
+    }
+    
+    override public var nativeAd: GADUnifiedNativeAd? {
+        didSet {
+            if let nativeContentAd = nativeAd, let callToActionView = callToActionView {
+                nativeContentAd.register(self,
+                                         clickableAssetViews: [GADUnifiedNativeAssetIdentifier.callToActionAsset: callToActionView],
+                                         nonclickableAssetViews: [:])
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +65,7 @@ public class GADTMediumTemplateView: GADUnifiedNativeAdView {
     public var setNativeAd: GADUnifiedNativeAd! {
         didSet{
             hiddenElementes(isHidden: false)
+            callToActionView = self
             self.nativeAd = setNativeAd
             if let icon = setNativeAd.icon {
                 iconAds.image = icon.image
