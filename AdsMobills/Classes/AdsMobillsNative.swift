@@ -17,7 +17,7 @@ public class AdsMobillsNative: NSObject {
     static var fromController = UIViewController()
     static var adNative: GADAdLoader!
     private var viewTemplate: UIView!
-    
+    private var countRequireAds = 0
     //clousere to reloadTable
     var adReceived: ((Bool) -> Void)?
     
@@ -54,6 +54,9 @@ extension AdsMobillsNative: GADUnifiedNativeAdLoaderDelegate{
         let adLoadId = AdsMobillsNative.adNative
         if adLoadId?.adUnitID == AdsMobillsNative.adIdExpansive{
             AdsMobillsNative.adNative = loadDefaultNative()
+            return
+        }else{
+            adReceived?(false)
             return
         }
     }
