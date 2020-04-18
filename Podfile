@@ -8,7 +8,7 @@ def example_native
 end
 
 def ads_google
-#    pod ''
+    pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'AdsGoogle' do

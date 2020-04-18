@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		487ADA41EC07DD230B508B76 /* libPods-AdsGoogle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB162BCE08F212CA4B529 /* libPods-AdsGoogle.a */; };
 		85B9405C244B714F008B2EC5 /* AdsGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 85B9405A244B714F008B2EC5 /* AdsGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85B94066244B78CD008B2EC5 /* AdsNativeManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B94065244B78CD008B2EC5 /* AdsNativeManeger.swift */; };
+		85B94066244B78CD008B2EC5 /* AdsNativeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B94065244B78CD008B2EC5 /* AdsNativeManager.swift */; };
 		85B94068244B78E4008B2EC5 /* AdsInterstitialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B94067244B78E4008B2EC5 /* AdsInterstitialManager.swift */; };
+		85B940AC244BA640008B2EC5 /* AdsNativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940AB244BA640008B2EC5 /* AdsNativeService.swift */; };
+		85B940AE244BA937008B2EC5 /* GADMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940AD244BA937008B2EC5 /* GADMediumTemplateView.swift */; };
+		85B940B0244BA9DB008B2EC5 /* GADSmallTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */; };
+		85B940B2244BAB16008B2EC5 /* AdsNativeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940B1244BAB16008B2EC5 /* AdsNativeCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +22,12 @@
 		85B94057244B714F008B2EC5 /* AdsGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdsGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B9405A244B714F008B2EC5 /* AdsGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdsGoogle.h; sourceTree = "<group>"; };
 		85B9405B244B714F008B2EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85B94065244B78CD008B2EC5 /* AdsNativeManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsNativeManeger.swift; sourceTree = "<group>"; };
+		85B94065244B78CD008B2EC5 /* AdsNativeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsNativeManager.swift; sourceTree = "<group>"; };
 		85B94067244B78E4008B2EC5 /* AdsInterstitialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsInterstitialManager.swift; sourceTree = "<group>"; };
+		85B940AB244BA640008B2EC5 /* AdsNativeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsNativeService.swift; sourceTree = "<group>"; };
+		85B940AD244BA937008B2EC5 /* GADMediumTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADMediumTemplateView.swift; sourceTree = "<group>"; };
+		85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADSmallTemplateView.swift; sourceTree = "<group>"; };
+		85B940B1244BAB16008B2EC5 /* AdsNativeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsNativeCache.swift; sourceTree = "<group>"; };
 		D36AB162BCE08F212CA4B529 /* libPods-AdsGoogle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdsGoogle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB121F06E2DDC15A8D2E7022 /* Pods-AdsGoogle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdsGoogle.debug.xcconfig"; path = "Target Support Files/Pods-AdsGoogle/Pods-AdsGoogle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +87,7 @@
 		85B94062244B77D7008B2EC5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				85B94065244B78CD008B2EC5 /* AdsNativeManeger.swift */,
+				85B94065244B78CD008B2EC5 /* AdsNativeManager.swift */,
 				85B94067244B78E4008B2EC5 /* AdsInterstitialManager.swift */,
 			);
 			path = Managers;
@@ -95,6 +103,10 @@
 		85B94064244B77F5008B2EC5 /* Native */ = {
 			isa = PBXGroup;
 			children = (
+				85B940B1244BAB16008B2EC5 /* AdsNativeCache.swift */,
+				85B940AB244BA640008B2EC5 /* AdsNativeService.swift */,
+				85B940AD244BA937008B2EC5 /* GADMediumTemplateView.swift */,
+				85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */,
 			);
 			path = Native;
 			sourceTree = "<group>";
@@ -213,8 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B940AC244BA640008B2EC5 /* AdsNativeService.swift in Sources */,
+				85B940B0244BA9DB008B2EC5 /* GADSmallTemplateView.swift in Sources */,
+				85B940B2244BAB16008B2EC5 /* AdsNativeCache.swift in Sources */,
 				85B94068244B78E4008B2EC5 /* AdsInterstitialManager.swift in Sources */,
-				85B94066244B78CD008B2EC5 /* AdsNativeManeger.swift in Sources */,
+				85B940AE244BA937008B2EC5 /* GADMediumTemplateView.swift in Sources */,
+				85B94066244B78CD008B2EC5 /* AdsNativeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -329,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
