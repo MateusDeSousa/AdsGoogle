@@ -12,6 +12,9 @@
       location = "group:ExampleNative/ExampleNative.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:ExampleInterstitial/ExampleInterstitial.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

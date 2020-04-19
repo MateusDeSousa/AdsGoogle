@@ -7,6 +7,10 @@ def example_native
 #    pod ''
 end
 
+def example_interstitial
+#    pod ''
+end
+
 def ads_google
     pod 'Google-Mobile-Ads-SDK'
 end
@@ -19,4 +23,9 @@ end
 target 'ExampleNative' do
     project 'ExampleNative/ExampleNative.project'
     example_native
+end
+
+target 'ExampleInterstitial' do
+    project 'ExampleInterstitial/ExampleInterstitial.project'
+    example_interstitial
 end
