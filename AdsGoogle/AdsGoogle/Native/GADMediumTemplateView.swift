@@ -132,6 +132,9 @@ public class GADMediumTemplateView: GADUnifiedNativeAdView {
     }
 
     private func applyQtdStars(number: NSDecimalNumber?){
+        guard let resourcePath = Bundle.main.path(forResource: "Resources", ofType: "bundle"), let bundle = Bundle(path: resourcePath) else { return }
+        starsAppAd.image = UIImage(named: "rate-2", in: bundle, compatibleWith: nil)
+        return
         if let numberStars = number as? Double{
             if numberStars <= 0.5{
                 starsAppAd.image = UIImage(named: "rate-2")

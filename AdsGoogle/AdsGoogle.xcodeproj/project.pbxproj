@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,19 @@
 		85B940AE244BA937008B2EC5 /* GADMediumTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940AD244BA937008B2EC5 /* GADMediumTemplateView.swift */; };
 		85B940B0244BA9DB008B2EC5 /* GADSmallTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */; };
 		85B940B2244BAB16008B2EC5 /* AdsNativeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940B1244BAB16008B2EC5 /* AdsNativeCache.swift */; };
+		85B940E0244C0C35008B2EC5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B940DF244C0C35008B2EC5 /* images.xcassets */; };
+		85B940E1244C0C52008B2EC5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B940DF244C0C35008B2EC5 /* images.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85B940DD244C09FC008B2EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85B9404E244B714F008B2EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85B940D6244C09BC008B2EC5;
+			remoteInfo = Resources;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		19B8D76A167EBF2357C0D86F /* Pods-AdsGoogle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdsGoogle.release.xcconfig"; path = "Target Support Files/Pods-AdsGoogle/Pods-AdsGoogle.release.xcconfig"; sourceTree = "<group>"; };
@@ -28,6 +40,9 @@
 		85B940AD244BA937008B2EC5 /* GADMediumTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADMediumTemplateView.swift; sourceTree = "<group>"; };
 		85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADSmallTemplateView.swift; sourceTree = "<group>"; };
 		85B940B1244BAB16008B2EC5 /* AdsNativeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsNativeCache.swift; sourceTree = "<group>"; };
+		85B940D7244C09BC008B2EC5 /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		85B940D9244C09BC008B2EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85B940DF244C0C35008B2EC5 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		D36AB162BCE08F212CA4B529 /* libPods-AdsGoogle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdsGoogle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB121F06E2DDC15A8D2E7022 /* Pods-AdsGoogle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdsGoogle.debug.xcconfig"; path = "Target Support Files/Pods-AdsGoogle/Pods-AdsGoogle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +53,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				487ADA41EC07DD230B508B76 /* libPods-AdsGoogle.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85B940D4244C09BC008B2EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				85B94059244B714F008B2EC5 /* AdsGoogle */,
+				85B940D8244C09BC008B2EC5 /* Resources */,
 				85B94058244B714F008B2EC5 /* Products */,
 				645F997187A5C1B23ECB9FC0 /* Pods */,
 				B940AD91FE072A4F40BEB4FC /* Frameworks */,
@@ -68,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				85B94057244B714F008B2EC5 /* AdsGoogle.framework */,
+				85B940D7244C09BC008B2EC5 /* Resources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,11 +99,12 @@
 		85B94059244B714F008B2EC5 /* AdsGoogle */ = {
 			isa = PBXGroup;
 			children = (
-				85B9405A244B714F008B2EC5 /* AdsGoogle.h */,
+				85B94062244B77D7008B2EC5 /* Managers */,
 				85B94064244B77F5008B2EC5 /* Native */,
 				85B94063244B77E7008B2EC5 /* Interstitial */,
-				85B94062244B77D7008B2EC5 /* Managers */,
+				85B9405A244B714F008B2EC5 /* AdsGoogle.h */,
 				85B9405B244B714F008B2EC5 /* Info.plist */,
+				85B940DF244C0C35008B2EC5 /* images.xcassets */,
 			);
 			path = AdsGoogle;
 			sourceTree = "<group>";
@@ -109,6 +134,14 @@
 				85B940AF244BA9DB008B2EC5 /* GADSmallTemplateView.swift */,
 			);
 			path = Native;
+			sourceTree = "<group>";
+		};
+		85B940D8244C09BC008B2EC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85B940D9244C09BC008B2EC5 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B940AD91FE072A4F40BEB4FC /* Frameworks */ = {
@@ -146,11 +179,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				85B940DE244C09FC008B2EC5 /* PBXTargetDependency */,
 			);
 			name = AdsGoogle;
 			productName = AdsGoogle;
 			productReference = 85B94057244B714F008B2EC5 /* AdsGoogle.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		85B940D6244C09BC008B2EC5 /* Resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85B940DC244C09BC008B2EC5 /* Build configuration list for PBXNativeTarget "Resources" */;
+			buildPhases = (
+				85B940D3244C09BC008B2EC5 /* Sources */,
+				85B940D4244C09BC008B2EC5 /* Frameworks */,
+				85B940D5244C09BC008B2EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resources;
+			productName = Resources;
+			productReference = 85B940D7244C09BC008B2EC5 /* Resources.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -164,6 +215,9 @@
 					85B94056244B714F008B2EC5 = {
 						CreatedOnToolsVersion = 11.4.1;
 						LastSwiftMigration = 1140;
+					};
+					85B940D6244C09BC008B2EC5 = {
+						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
@@ -181,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				85B94056244B714F008B2EC5 /* AdsGoogle */,
+				85B940D6244C09BC008B2EC5 /* Resources */,
 			);
 		};
 /* End PBXProject section */
@@ -190,6 +245,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B940E0244C0C35008B2EC5 /* images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85B940D5244C09BC008B2EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B940E1244C0C52008B2EC5 /* images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +298,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85B940D3244C09BC008B2EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85B940DE244C09FC008B2EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 85B940D6244C09BC008B2EC5 /* Resources */;
+			targetProxy = 85B940DD244C09FC008B2EC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		85B9405D244B714F008B2EC5 /* Debug */ = {
@@ -410,6 +490,40 @@
 			};
 			name = Release;
 		};
+		85B940DA244C09BC008B2EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3T7W6T7535;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mateussousa.Resources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		85B940DB244C09BC008B2EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3T7W6T7535;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mateussousa.Resources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -427,6 +541,15 @@
 			buildConfigurations = (
 				85B94060244B714F008B2EC5 /* Debug */,
 				85B94061244B714F008B2EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85B940DC244C09BC008B2EC5 /* Build configuration list for PBXNativeTarget "Resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85B940DA244C09BC008B2EC5 /* Debug */,
+				85B940DB244C09BC008B2EC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
