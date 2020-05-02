@@ -1,6 +1,6 @@
-<h1 align="center">
-  AdsGoogle
-</h1>
+<p align="center">
+<img src="ReadmeAssets/google-ads.gif" width="200" height="200" />
+</p>
 
 <p align="center">
 AdsGoogle is a library created by Mateus Sousa. For those who want to implement AdMob in their apps for monetization. This library abbreviated logic from google's own lib to make it easy to use or even scale.</p>
