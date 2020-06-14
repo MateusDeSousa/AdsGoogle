@@ -4,7 +4,7 @@ platform :ios, '10.0'
 workspace 'AdsGoogle'
 
 def example_native
-#    pod ''
+#    pod 'AdsGoogle', :path => 'AdsGoogle'
 end
 
 def example_interstitial

@@ -8,15 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		638B679E1A69A7A0F48CE276 /* libPods-ExampleNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9835D3F0F4C3EE6D8B8AFE17 /* libPods-ExampleNative.a */; };
+		855A425B24968B3800838EAD /* AdsGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855A425A24968B3800838EAD /* AdsGoogle.framework */; };
+		855A425C24968B3800838EAD /* AdsGoogle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 855A425A24968B3800838EAD /* AdsGoogle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85B94076244B8057008B2EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B94075244B8057008B2EC5 /* AppDelegate.swift */; };
 		85B9407A244B8057008B2EC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B94079244B8057008B2EC5 /* ViewController.swift */; };
 		85B9407F244B8059008B2EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B9407E244B8059008B2EC5 /* Assets.xcassets */; };
 		85B94082244B8059008B2EC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B94080244B8059008B2EC5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		855A425D24968B3800838EAD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				855A425C24968B3800838EAD /* AdsGoogle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2B312F9E67EE566D2B62012D /* Pods-ExampleNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleNative.release.xcconfig"; path = "Target Support Files/Pods-ExampleNative/Pods-ExampleNative.release.xcconfig"; sourceTree = "<group>"; };
 		723FE5E2875646EA6DFB6FB6 /* Pods-ExampleNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleNative.debug.xcconfig"; path = "Target Support Files/Pods-ExampleNative/Pods-ExampleNative.debug.xcconfig"; sourceTree = "<group>"; };
+		855A425A24968B3800838EAD /* AdsGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdsGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B94072244B8057008B2EC5 /* ExampleNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B94075244B8057008B2EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85B94079244B8057008B2EC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855A425B24968B3800838EAD /* AdsGoogle.framework in Frameworks */,
 				638B679E1A69A7A0F48CE276 /* libPods-ExampleNative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +59,7 @@
 		46187A276DD4DBD216AE586A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				855A425A24968B3800838EAD /* AdsGoogle.framework */,
 				9835D3F0F4C3EE6D8B8AFE17 /* libPods-ExampleNative.a */,
 			);
 			name = Frameworks;
@@ -97,6 +116,7 @@
 				85B9406E244B8057008B2EC5 /* Sources */,
 				85B9406F244B8057008B2EC5 /* Frameworks */,
 				85B94070244B8057008B2EC5 /* Resources */,
+				855A425D24968B3800838EAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

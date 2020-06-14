@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		855A425F24968BC700838EAD /* AdsGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855A425E24968BC700838EAD /* AdsGoogle.framework */; };
+		855A426024968BC700838EAD /* AdsGoogle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 855A425E24968BC700838EAD /* AdsGoogle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85B940C0244BF416008B2EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940BF244BF416008B2EC5 /* AppDelegate.swift */; };
 		85B940C4244BF416008B2EC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B940C3244BF416008B2EC5 /* ViewController.swift */; };
 		85B940C9244BF418008B2EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B940C8244BF418008B2EC5 /* Assets.xcassets */; };
@@ -14,8 +16,23 @@
 		B52E00066221986BBE8A5581 /* libPods-ExampleInterstitial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 393C11E9A37AFEE3321B883B /* libPods-ExampleInterstitial.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		855A426124968BC700838EAD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				855A426024968BC700838EAD /* AdsGoogle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		393C11E9A37AFEE3321B883B /* libPods-ExampleInterstitial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleInterstitial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		855A425E24968BC700838EAD /* AdsGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdsGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B940BC244BF416008B2EC5 /* ExampleInterstitial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleInterstitial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B940BF244BF416008B2EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85B940C3244BF416008B2EC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855A425F24968BC700838EAD /* AdsGoogle.framework in Frameworks */,
 				B52E00066221986BBE8A5581 /* libPods-ExampleInterstitial.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +59,7 @@
 		853825AC4E20853C17F38F1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				855A425E24968BC700838EAD /* AdsGoogle.framework */,
 				393C11E9A37AFEE3321B883B /* libPods-ExampleInterstitial.a */,
 			);
 			name = Frameworks;
@@ -97,6 +116,7 @@
 				85B940B8244BF416008B2EC5 /* Sources */,
 				85B940B9244BF416008B2EC5 /* Frameworks */,
 				85B940BA244BF416008B2EC5 /* Resources */,
+				855A426124968BC700838EAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -99,9 +99,7 @@
 		85B94059244B714F008B2EC5 /* AdsGoogle */ = {
 			isa = PBXGroup;
 			children = (
-				85B94062244B77D7008B2EC5 /* Managers */,
-				85B94064244B77F5008B2EC5 /* Native */,
-				85B94063244B77E7008B2EC5 /* Interstitial */,
+				85E56E3F2496927B00E51B54 /* Source */,
 				85B9405A244B714F008B2EC5 /* AdsGoogle.h */,
 				85B9405B244B714F008B2EC5 /* Info.plist */,
 				85B940DF244C0C35008B2EC5 /* images.xcassets */,
@@ -122,7 +120,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Interstitial;
+			name = Interstitial;
+			path = ../Interstitial;
 			sourceTree = "<group>";
 		};
 		85B94064244B77F5008B2EC5 /* Native */ = {
@@ -142,6 +141,16 @@
 				85B940D9244C09BC008B2EC5 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		85E56E3F2496927B00E51B54 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				85B94063244B77E7008B2EC5 /* Interstitial */,
+				85B94064244B77F5008B2EC5 /* Native */,
+				85B94062244B77D7008B2EC5 /* Managers */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		B940AD91FE072A4F40BEB4FC /* Frameworks */ = {
