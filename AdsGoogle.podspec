@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.source = { :git => "https://github.com/MateusDeSousa/AdsGoogle.git", :tag => "#{spec.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source_files  = "Classes", "AdsGoogle/AdsGoogle/Source/**/*.{swift}"
+  spec.source_files  = "Classes", "AdsGoogle/Source/**/*.{swift}"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   # spec.resource  = "icon.png"
