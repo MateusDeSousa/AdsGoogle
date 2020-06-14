@@ -6,6 +6,10 @@
 AdsGoogle is a library created by Mateus Sousa. For those who want to implement AdMob in their apps for monetization. This library abbreviated logic from google's own lib to make it easy to use or even scale.</p>
 
 <p align="center">
+  <a href="https://travis-ci.com/MateusDeSousa/AdsGoogle">
+    <img alt="Build Status" src="https://travis-ci.com/MateusDeSousa/AdsGoogle.svg?branch=master">
+  </a>
+  
   <a href="https://github.com/mateusdesousa">
     <img alt="Made by Mateus Sousa" src="https://img.shields.io/badge/made%20by-Mateus%20Sousa-brightgreen">
   </a>
