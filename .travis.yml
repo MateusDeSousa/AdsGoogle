@@ -1,0 +1,4 @@
+os: osx
+osx_image: xcode11.5
+language: swift
+script: xcodebuild -workspace AdsGoogle.xcworkspace -scheme AdsGoogle -destination "platform=iOS Simulator,OS=13.5,name=iPhone 11"
